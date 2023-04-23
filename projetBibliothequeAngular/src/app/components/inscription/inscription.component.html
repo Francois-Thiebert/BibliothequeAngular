@@ -1,0 +1,47 @@
+<h2>Inscription</h2>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="prenom">Prénom : </label>
+    <input id="prenom" class="form-control" formControlName="prenom"/>
+  </div>
+  <div class="form-group">
+    <label for="nom">Nom : </label>
+    <input id="nom" class="form-control" formControlName="nom"/>
+  </div>
+
+  <ng-container formGroupName="compteGroup">
+    <div class="form-group">
+      <label for="login">Nom d'utilisateur : </label>
+      <input id="login" class="form-control" formControlName="login"/>
+      <span *ngIf="
+      form.get('compteGroup.login')?.dirty &&
+      form.get('compteGroup.login')?.hasError('loginExist')">
+    Ce nom d'utilisateur est déjà pris.</span>
+    </div>
+    <ng-container formGroupName="passwordGroup">
+      <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input id="password" class="form-control" formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="confirm">Veuillez confirmer votre mot de passe :</label>
+        <input id="confirm" class="form-control" formControlName="confirm"/>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div>
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
+      Valider
+    </button>
+    <a routerLink="/home" routerLinkActive="active" class="btn btn-link"
+      >Annuler</a
+    >
+  </div>
+
+</form>
