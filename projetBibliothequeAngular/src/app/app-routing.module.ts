@@ -8,6 +8,7 @@ import { AnonymousGuardService } from './services/anonymous-guard.service';
 import { AdherentGuardService } from './services/adherent-guard.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { UserGuardService } from './services/user-guard.service';
+import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
 
 const routes: Routes = [
   {path: 'login',
@@ -19,7 +20,10 @@ const routes: Routes = [
 
   { path: 'inscription',
     component: InscriptionComponent,
-    canActivate: [AnonymousGuardService],}
+    canActivate: [AnonymousGuardService],},
+
+  { path: 'livres',
+  component: ListeLivresComponent}
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LinkComponent } from './components/link/link.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { CompteComponent } from './components/compte/compte.component';
+import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CompteComponent } from './components/compte/compte.component';
     HomeComponent,
     LinkComponent,
     InscriptionComponent,
-    CompteComponent
+    CompteComponent,
+    ListeLivresComponent
   ],
   imports: [
     BrowserModule,

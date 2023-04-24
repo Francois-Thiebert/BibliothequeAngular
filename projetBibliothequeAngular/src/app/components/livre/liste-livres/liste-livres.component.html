@@ -1,0 +1,35 @@
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Etiquettes</th>
+      <th>Emprunts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let l of livres">
+      <td>{{ l.id }}</td>
+      <td>{{ l.titre }}</td>
+      <td>{{ l.auteur }}</td>
+      <td>{{ l.etiquettes }}</td>
+      <td>{{ l.emprunts }}</td>
+
+      <td>
+        <a routerLink="/livre/edit/{{l.id}}"
+            routerLinkActive="active"
+            class="btn btn-primary">Editer</a>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(l.id!)">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+<app-link etiquetteLien="Nouveau livre" lien="/livre/add"></app-link>
