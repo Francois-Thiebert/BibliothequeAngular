@@ -1,0 +1,27 @@
+<h2>Edition de Livre</h2>
+
+<div>
+  <div>
+    <label for="id">Id :</label>
+    <input type="id" [(ngModel)]="livre.id" readonly class="form-control">
+  </div>
+  <div>
+    <label for="titre">Titre :</label>
+    <input type="titre" [(ngModel)]="livre.titre" class="form-control">
+  </div>
+  <div>
+    <label for="auteur">Auteur :</label>
+    <input type="auteur" [(ngModel)]="livre.auteur" class="form-control">
+  </div>
+  <div>
+    <label for="etiquettes">Etiquettes :</label>
+    <input type="">
+  </div>
+  <!-- il manque ici les étiquettes et les emprunts, à ajouter plus tard -->
+  <div class="form-group">
+    <button (click)="save()" class="btn btn-outline-primary">
+      enregistrer
+    </button>
+    <a routerLink="/livres" class="btn btn-outline-warning">annuler</a>
+  </div>
+</div>

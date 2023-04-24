@@ -9,6 +9,8 @@ import { AdherentGuardService } from './services/adherent-guard.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { UserGuardService } from './services/user-guard.service';
 import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
+import { EditLivreComponent } from './components/livre/edit-livre/edit-livre.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: 'login',
@@ -23,7 +25,13 @@ const routes: Routes = [
     canActivate: [AnonymousGuardService],},
 
   { path: 'livres',
-  component: ListeLivresComponent}
+  component: ListeLivresComponent},
+
+  { path: 'livre/add',
+  component: EditLivreComponent},
+
+
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

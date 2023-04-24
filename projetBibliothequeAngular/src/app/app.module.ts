@@ -12,6 +12,9 @@ import { LinkComponent } from './components/link/link.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { CompteComponent } from './components/compte/compte.component';
 import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
+import { EditLivreComponent } from './components/livre/edit-livre/edit-livre.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ListeLivresComponent } from './components/livre/liste-livres/liste-livr
     LinkComponent,
     InscriptionComponent,
     CompteComponent,
-    ListeLivresComponent
+    ListeLivresComponent,
+    EditLivreComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

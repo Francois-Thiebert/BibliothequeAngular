@@ -21,7 +21,7 @@ export class LivreService {
     return this.http.get<Livre>(`${livreRest}/${id}`);
   }
 
-  public delete(id:number): Observable<void> {
+  public delete(id: number): Observable<void> {
     return this.http.delete<void>(`${livreRest}/${id}`);
   }
 

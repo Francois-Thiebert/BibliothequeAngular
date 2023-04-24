@@ -15,7 +15,7 @@ export class ObjectToJsonService {
       statut: livre.statut,
     };
     if (livre.id) {
-      Object.assign(obj, {id: livre.id});
+      Object.assign(obj, {livreId: livre.id});
     }
     if (livre.etiquettes) {
       Object.assign(obj, {etiquettes: livre.etiquettes});
