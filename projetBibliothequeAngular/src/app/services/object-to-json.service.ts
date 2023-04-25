@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Livre } from '../model/livre';
 import { Adherent } from '../model/adherent';
+import { Emprunt } from '../model/emprunt';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,15 @@ export class ObjectToJsonService {
       login: adherent.login,
       password: adherent.password
     }
+    return obj;
+  }
+
+  public empruntToJson(emprunt: Emprunt): any {
+    let obj = {
+      livreId: emprunt.livre?.id,
+      adherentId:1
+    }
+    console.debug(obj);
     return obj;
   }
 }

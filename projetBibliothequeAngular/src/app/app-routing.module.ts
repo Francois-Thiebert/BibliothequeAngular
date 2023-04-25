@@ -10,6 +10,7 @@ import { AdminGuardService } from './services/admin-guard.service';
 import { UserGuardService } from './services/user-guard.service';
 import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
 import { EditLivreComponent } from './components/livre/edit-livre/edit-livre.component';
+import { EmprunterComponent } from './components/emprunter/emprunter.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListeAdherentsComponent } from './components/adherent/liste-adherents/liste-adherents.component';
 import { EditAdherentComponent } from './components/adherent/edit-adherent/edit-adherent.component';
@@ -45,6 +46,9 @@ const routes: Routes = [
 
   { path: 'adherent/add',
   component: EditAdherentComponent},
+
+  { path: 'emprunter',
+  component: EmprunterComponent},
 
 
   { path: '**', component: NotFoundComponent },

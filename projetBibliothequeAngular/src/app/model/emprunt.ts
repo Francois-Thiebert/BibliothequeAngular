@@ -2,6 +2,14 @@ import { Adherent } from "./adherent";
 import { Livre } from "./livre";
 
 export class Emprunt {
+  private _livre?: Livre | undefined;
+  public get livre(): Livre | undefined {
+    return this._livre;
+  }
+  public set livre(value: Livre | undefined) {
+    this._livre = value;
+  }
+
   private _id?: number | undefined;
   public get id(): number | undefined {
     return this._id;
@@ -40,13 +48,5 @@ export class Emprunt {
   }
   public set emprunteur(value: Adherent | undefined) {
     this._emprunteur = value;
-  }
-
-  private _livre?: Livre | undefined;
-  public get livre(): Livre | undefined {
-    return this._livre;
-  }
-  public set livre(value: Livre | undefined) {
-    this._livre = value;
   }
 }

@@ -1,0 +1,32 @@
+<h1>Emprunter</h1>
+<hr>
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Genre</th>
+      <th>Disponibilité</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let l of livres">
+      <td>{{ l.titre }}</td>
+      <td>{{ l.auteur }}</td>
+      <td>{{ l.etiquettes }}</td>
+      <td>{{ l.statut }}</td>
+      <td>
+        <button *ngIf="l.statut === 'DISPONIBLE'" class="btn btn-success" (click)="emprunter(l)">
+          Emprunter
+        </button>
+        <!-- <button *ngIf="l.statut === 'EMPRUNTE'" class="btn btn-warning" (click)="emprunter(l)">
+          Réserver
+        </button> -->
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
