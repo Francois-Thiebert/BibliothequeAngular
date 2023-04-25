@@ -2,10 +2,6 @@
 
 <div>
   <div>
-    <label for="id">Id :</label>
-    <input type="id" [(ngModel)]="livre.id" readonly class="form-control">
-  </div>
-  <div>
     <label for="titre">Titre :</label>
     <input type="titre" [(ngModel)]="livre.titre" class="form-control">
   </div>
@@ -15,13 +11,23 @@
   </div>
   <div>
     <label for="etiquettes">Etiquettes :</label>
-    <input type="">
+    <input type="etiquettes" [(ngModel)]="livre.etiquettes">
   </div>
-  <!-- il manque ici les étiquettes et les emprunts, à ajouter plus tard avec Angular Material -->
+  <div>
+    <label for="statut">Statut : </label>
+
+    <div *ngFor="let statut of statuts">
+      <label for="{{statut}}">
+        <input id="{{statut}}" [value]='statut' type="radio" name="statuts" [(ngModel)]="livre.statut">
+        {{statut}}
+      </label>
+    </div>
+    <br>
+  </div>
   <div class="form-group">
-    <button (click)="save()" class="btn btn-outline-primary">
-      enregistrer
+    <button (click)="save()" class="btn btn-primary">
+      Enregistrer
     </button>
-    <a routerLink="/livres" class="btn btn-outline-warning">annuler</a>
+    <a routerLink="/livres" class="btn btn-warning">Annuler</a>
   </div>
 </div>
