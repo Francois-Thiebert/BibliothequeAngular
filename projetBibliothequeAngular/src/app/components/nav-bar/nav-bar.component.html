@@ -1,7 +1,15 @@
 <app-link etiquetteLien="Accueil" lien="/home"></app-link>
 
 <app-link etiquetteLien="S'inscrire" lien="/inscription"></app-link>
+
+<button *ngIf="logged" class="btn btn-link" (click)="logout()">deconnexion
+</button>
+
+
+
 <app-link etiquetteLien="Se connecter" lien="/login"></app-link>
+
+
 
 <app-link etiquetteLien="Livres" lien="/livres"></app-link>
 <app-link etiquetteLien="Adhérents" lien="/adherents"></app-link>

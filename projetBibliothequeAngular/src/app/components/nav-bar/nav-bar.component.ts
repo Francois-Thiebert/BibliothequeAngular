@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/model/role';
+import { Utilisateur } from 'src/app/model/utilisateur';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,6 +19,16 @@ export class NavBarComponent {
 
   get logged(): boolean {
     return sessionStorage.getItem('token') ? true : false;
+  }
+
+  get admin(): boolean {
+    if (sessionStorage.getItem('utilisateur')) {
+      let utilisateur: Utilisateur  = JSON.parse(
+        sessionStorage.getItem('utilisateur')!
+      ) as Utilisateur;
+      return utilisateur.role == Role.ROLE_ADMIN;
+    }
+    return false;
   }
 
 
