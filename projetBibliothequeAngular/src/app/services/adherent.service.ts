@@ -3,7 +3,6 @@ import { Adherent } from '../model/adherent';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { adherentRest, livreRest } from '../env';
-import { Livre } from '../model/livre';
 import { ObjectToJsonService } from './object-to-json.service';
 
 @Injectable({

@@ -29,10 +29,14 @@ export class ObjectToJsonService {
   public adherentToJson(adherent: Adherent): any {
     let obj = {
       id: adherent.id,
-      prenom: adherent.prenom,
-      nom: adherent.nom,
       login: adherent.login,
       password: adherent.password
+    }
+    if (adherent.prenom) {
+      Object.assign(obj, {prenom: adherent.prenom});
+    }
+    if (adherent.nom) {
+      Object.assign(obj, {nom: adherent.nom});
     }
     return obj;
   }

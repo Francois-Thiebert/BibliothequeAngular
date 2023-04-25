@@ -1,3 +1,4 @@
+import { Statut } from './../../model/statut';
 import { Component } from '@angular/core';
 import { Adherent } from 'src/app/model/adherent';
 import { Emprunt } from 'src/app/model/emprunt';
@@ -36,6 +37,9 @@ export class EmprunterComponent {
   emprunter (livre: Livre) {
     this.emprunt.livre=livre
     this.emprunt.emprunteur=this.emprunteur
+    this.emprunt.livre.statut=Statut.STATUT_EMPRUNTE;
+    console.debug(this.emprunt.livre.statut);
+    this.livreSrv.update(this.emprunt.livre);
     this.empruntSrv.create(this.emprunt).subscribe(() => {
       this.initLivres();
     })

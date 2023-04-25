@@ -37,7 +37,7 @@ export class EditAdherentComponent implements OnInit{
       obvResult = this.adherentSrv.create(this.adherent);
     }
     obvResult.subscribe(() => {
-      this.router.navigateByUrl('/adherent');
+      this.router.navigateByUrl('/adherents');
     });
   }
 
