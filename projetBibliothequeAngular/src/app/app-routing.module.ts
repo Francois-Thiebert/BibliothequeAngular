@@ -11,6 +11,9 @@ import { UserGuardService } from './services/user-guard.service';
 import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
 import { EditLivreComponent } from './components/livre/edit-livre/edit-livre.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ListeAdherentsComponent } from './components/adherent/liste-adherents/liste-adherents.component';
+import { EditAdherentComponent } from './components/adherent/edit-adherent/edit-adherent.component';
+import { LivreComponent } from './components/livre/livre/livre.component';
 
 const routes: Routes = [
   {path: 'login',
@@ -29,6 +32,19 @@ const routes: Routes = [
 
   { path: 'livre/add',
   component: EditLivreComponent},
+
+  { path: 'livre/edit/:id',
+  component: EditLivreComponent},
+
+  { path: 'livre/:id',
+  component: LivreComponent},
+  // à ajouter, + component de livre pour afficher les infos
+
+  { path: 'adherents',
+  component: ListeAdherentsComponent},
+
+  { path: 'adherent/add',
+  component: EditAdherentComponent},
 
 
   { path: '**', component: NotFoundComponent },

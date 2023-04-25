@@ -1,4 +1,4 @@
-import { Adherent } from "./comptes/adherent";
+import { Adherent } from "./adherent";
 import { Livre } from "./livre";
 
 export class Emprunt {

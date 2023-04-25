@@ -37,7 +37,7 @@ export class EditLivreComponent implements OnInit{
       obvResult = this.livreSrv.create(this.livre);
     }
     obvResult.subscribe(() => {
-      this.router.navigateByUrl('/livre');
+      this.router.navigateByUrl('/livres');
     });
   }
 

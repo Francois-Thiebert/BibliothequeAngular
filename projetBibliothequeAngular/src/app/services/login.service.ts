@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Adherent } from '../model/comptes/adherent';
+import { Adherent } from '../model/adherent';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { authRest } from '../env';

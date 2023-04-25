@@ -14,6 +14,11 @@ import { CompteComponent } from './components/compte/compte.component';
 import { ListeLivresComponent } from './components/livre/liste-livres/liste-livres.component';
 import { EditLivreComponent } from './components/livre/edit-livre/edit-livre.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ListeAdherentsComponent } from './components/adherent/liste-adherents/liste-adherents.component';
+import { EditAdherentComponent } from './components/adherent/edit-adherent/edit-adherent.component';
+import { EditAdministrateurComponent } from './components/adherent/edit-administrateur/edit-administrateur.component';
+import { ListeAdministrateursComponent } from './components/adherent/liste-administrateurs/liste-administrateurs.component';
+import { LivreComponent } from './components/livre/livre/livre.component';
 
 
 @NgModule({
@@ -28,6 +33,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ListeLivresComponent,
     EditLivreComponent,
     NotFoundComponent,
+    ListeAdherentsComponent,
+    EditAdherentComponent,
+    EditAdministrateurComponent,
+    ListeAdministrateursComponent,
+    LivreComponent,
   ],
   imports: [
     BrowserModule,

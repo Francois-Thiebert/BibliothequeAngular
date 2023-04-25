@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Adherent } from 'src/app/model/comptes/adherent';
+import { Adherent } from 'src/app/model/adherent';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({

@@ -1,0 +1,33 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of adherents">
+        <td>{{a.id}}</td>
+        <td>{{a.prenom}}</td>
+        <td>{{a.nom}}</td>
+        <td>{{a.login}}</td>
+        <td>
+          <a routerLink="/adherent/edit/{{a.id}}"
+              routerLinkActive="active"
+              class="btn btn-primary">Editer</a>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(a.id!)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<app-link etiquetteLien="Nouvel adhérent" lien="/adherent/add"></app-link>
