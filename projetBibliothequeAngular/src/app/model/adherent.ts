@@ -1,3 +1,4 @@
+import { Emprunt } from 'src/app/model/emprunt';
 export class Adherent {
 
   private _id?: number | undefined;
@@ -38,5 +39,13 @@ export class Adherent {
   }
   public set password(value: string | undefined) {
     this._password = value;
+  }
+
+  private _emprunts?: Emprunt[] | undefined;
+  public get emprunts(): Emprunt[] | undefined {
+    return this._emprunts;
+  }
+  public set emprunts(value: Emprunt[] | undefined) {
+    this._emprunts = value;
   }
 }

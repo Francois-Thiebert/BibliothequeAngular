@@ -32,7 +32,8 @@ export class ObjectToJsonService {
       prenom: adherent.prenom,
       nom: adherent.nom,
       login: adherent.login,
-      password: adherent.password
+      password: adherent.password,
+      emprunts:adherent.emprunts
     }
     return obj;
   }

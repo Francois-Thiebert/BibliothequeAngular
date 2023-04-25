@@ -1,0 +1,41 @@
+<h1>Information personnelles</h1>
+<h2>Informations utilisateur</h2>
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Login</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ adherent.nom }}</td>
+      <td>{{ adherent.prenom }}</td>
+      <td>{{ adherent.login }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Historique d'emprunts</h2>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Titre du livre</th>
+      <th>Auteur du livre</th>
+      <th>Date d'emprunt</th>
+      <th>A rendre avant le</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of adherent.emprunts">
+      <td>{{ e.livre?.titre }}</td>
+      <td>{{ e.livre?.auteur }}</td>
+      <td>{{ e.dateDebut }}</td>
+      <td>{{ e.dateFin }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -20,6 +20,7 @@ import { EditAdministrateurComponent } from './components/adherent/edit-administ
 import { ListeAdministrateursComponent } from './components/adherent/liste-administrateurs/liste-administrateurs.component';
 import { LivreComponent } from './components/livre/livre/livre.component';
 import { EmprunterComponent } from './components/emprunter/emprunter.component';
+import { InfosAdherentComponent } from './components/infos-adherent/infos-adherent.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { EmprunterComponent } from './components/emprunter/emprunter.component';
     ListeAdministrateursComponent,
     LivreComponent,
     EmprunterComponent,
+    InfosAdherentComponent,
   ],
   imports: [
     BrowserModule,
