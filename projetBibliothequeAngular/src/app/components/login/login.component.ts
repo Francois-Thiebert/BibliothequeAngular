@@ -27,7 +27,7 @@ export class LoginComponent {
             'token',
             'Basic ' + window.btoa(this.login + ':' + this.password)
           );
-          sessionStorage.setItem('compte', JSON.stringify(infos));
+          sessionStorage.setItem('utilisateur', JSON.stringify(infos));
           this.router.navigateByUrl('/home');
         },
         error: (error: any) => {
@@ -36,5 +36,9 @@ export class LoginComponent {
         },
       });
     }
+  }
+
+  rien(form: NgForm) {
+   
   }
 }
