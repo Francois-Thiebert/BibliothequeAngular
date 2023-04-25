@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Livre } from 'src/app/model/livre';
 import { LivreService } from 'src/app/services/livre.service';
+import { Statut } from 'src/app/model/statut';
 
 @Component({
   selector: 'app-edit-livre',
@@ -11,6 +12,8 @@ import { LivreService } from 'src/app/services/livre.service';
 })
 export class EditLivreComponent implements OnInit{
   livre!: Livre;
+  statuts: Statut[]=[Statut.STATUT_DISPONIBLE,Statut.STATUT_EMPRUNTE,Statut.STATUT_INDISPONIBLE];
+  // string[] = ["DISPONIBLE","EMPRUNTE","INDISPONIBLE"];
 
   constructor(
     private aR: ActivatedRoute,
@@ -36,9 +39,11 @@ export class EditLivreComponent implements OnInit{
     } else {
       obvResult = this.livreSrv.create(this.livre);
     }
+
     obvResult.subscribe(() => {
       this.router.navigateByUrl('/livres');
     });
+
   }
 
   compareById(obj1: Livre, obj2: Livre) {

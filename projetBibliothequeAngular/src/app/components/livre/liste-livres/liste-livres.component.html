@@ -5,6 +5,11 @@
       <th>Id</th>
       <th>Titre</th>
       <th>Auteur</th>
+      <th>Etiquettes</th>
+      <th>Emprunts</th>
+      <th>Statut</th>
+      <th>Edition</th>
+      <th>Suppression</th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +17,9 @@
       <td>{{ l.id }}</td>
       <td>{{ l.titre }}</td>
       <td>{{ l.auteur }}</td>
+      <td>{{ l.emprunts }}</td>
+      <td>{{ l.etiquettes }}</td>
+      <td>{{ l.statut }}</td>
 
       <td>
         <a routerLink="/livre/edit/{{ l.id }}"
