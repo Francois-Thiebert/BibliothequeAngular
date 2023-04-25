@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Emprunt } from '../model/emprunt';
 import { ObjectToJsonService } from './object-to-json.service';
-import { empruntRest } from '../env';
+import { empruntRest, empruntUserRest } from '../env';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,10 @@ export class EmpruntService {
 
   public allEmprunt(): Observable<Emprunt[]> {
     return this.http.get<Emprunt[]>(empruntRest);
+  }
 
+  public EmpruntByUser(id: number): Observable<Emprunt[]> {
+    return this.http.get<Emprunt[]>(`${empruntUserRest}/${id}`);
   }
 
   public getById(id: number): Observable<Emprunt> {

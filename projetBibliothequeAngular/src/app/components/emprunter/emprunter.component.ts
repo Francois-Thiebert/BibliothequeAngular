@@ -23,7 +23,9 @@ export class EmprunterComponent {
     this.initLivres();
     this.emprunt=new Emprunt();
     this.emprunteur=new Adherent();
-    this.emprunteur.id=1;
+    if(sessionStorage.getItem('utilisateur')){
+      this.emprunteur=JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
+    }
 
   }
 
