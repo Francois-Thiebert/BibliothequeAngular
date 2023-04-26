@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livre } from 'src/app/model/livre';
 import { LivreService } from 'src/app/services/livre.service';
 
+
 @Component({
   selector: 'app-liste-livres',
   templateUrl: './liste-livres.component.html',
@@ -28,4 +29,7 @@ export class ListeLivresComponent implements OnInit{
       this.initLivres();
     })
   }
+
+
+
 }

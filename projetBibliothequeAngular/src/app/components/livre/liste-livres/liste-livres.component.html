@@ -1,39 +1,42 @@
+<div class="container rounded">
+  <table class ="table table-hover table-striped">
+    <thead>
+      <tr color="primary">
+        <!-- changer la couleur et la police -->
+        <th >Id</th>
+        <th >Titre</th>
+        <th >Auteur</th>
+        <th >Etiquettes</th>
+        <th >Emprunts</th>
+        <th >Statut</th>
+        <th>Edition</th>
+        <th>Suppression</th>
+      </tr>
+    </thead>
+    <tbody class="">
+      <tr *ngFor="let l of livres">
+        <td>{{ l.id }}</td>
+        <td>{{ l.titre }}</td>
+        <td>{{ l.auteur }}</td>
+        <td>{{ l.emprunts }}</td>
+        <td>{{ l.etiquettes }}</td>
+        <td>{{ l.statut }}</td>
 
-<table class ="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Titre</th>
-      <th>Auteur</th>
-      <th>Etiquettes</th>
-      <th>Emprunts</th>
-      <th>Statut</th>
-      <th>Edition</th>
-      <th>Suppression</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let l of livres">
-      <td>{{ l.id }}</td>
-      <td>{{ l.titre }}</td>
-      <td>{{ l.auteur }}</td>
-      <td>{{ l.emprunts }}</td>
-      <td>{{ l.etiquettes }}</td>
-      <td>{{ l.statut }}</td>
+        <td>
+          <a mat-raised-button color="primary" routerLink="/livre/edit/{{ l.id }}"
+              routerLinkActive="active">Editer</a>
+        </td>
+        <td>
+          <button mat-raised-button color="warn" (click)="delete(l.id!)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
 
-      <td>
-        <a routerLink="/livre/edit/{{ l.id }}"
-            routerLinkActive="active"
-            class="btn btn-primary">Editer</a>
-      </td>
-      <td>
-        <button class="btn btn-danger" (click)="delete(l.id!)">
-          Supprimer
-        </button>
-      </td>
-    </tr>
-  </tbody>
+  </table>
 
-</table>
+  <a mat-raised-button color="primary" routerLink="/livre/add">+ Nouveau livre</a>
+</div>
 
-<app-link etiquetteLien="Nouveau livre" lien="/livre/add"></app-link>
+

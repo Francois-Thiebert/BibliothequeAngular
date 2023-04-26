@@ -1,12 +1,16 @@
-<app-link etiquetteLien="Accueil" lien="/home"></app-link>
+<div class="container">
+  <a mat-raised-button color="secondary" routerLink="/home">Accueil</a>
 
-<!-- Authentification -->
-<app-link etiquetteLien="S'inscrire" lien="/inscription"></app-link>
-<app-link etiquetteLien="Se connecter" lien="/login"></app-link>
+  <!-- Authentification -->
+  <a mat-raised-button color="secondary" routerLink="/inscription">S'inscrire</a>
+  <a mat-raised-button color="secondary" routerLink="/login">Se connecter</a>
 
-<!-- Côté Admin -->
-<app-link etiquetteLien="Livres" lien="/livres"></app-link>
-<app-link etiquetteLien="Adhérents" lien="/adherents"></app-link>
+  <!-- Côté Admin -->
+  <a mat-raised-button color="secondary" routerLink="/livres">Livres</a>
+  <a mat-raised-button color="secondary" routerLink="/adherents">Adhérents</a>
 
-<!-- Côté Adhérent -->
-<app-link etiquetteLien="Emprunter" lien="/emprunter"></app-link>
+  <!-- Côté Adhérent -->
+  <a mat-raised-button color="secondary" routerLink="/emprunter">Emprunter</a>
+</div>
+
+<!-- faire une sidebar plutôt ? -->

@@ -1,33 +1,39 @@
 <h2>Edition de Livre</h2>
 
-<div>
+<div class="container">
   <div>
-    <label for="titre">Titre :</label>
-    <input type="titre" [(ngModel)]="livre.titre" class="form-control">
+    <mat-form-field appearance="outline" >
+      <mat-label>Titre</mat-label>
+      <input matInput placeholder="Titre" [(ngModel)]="livre.titre">
+    </mat-form-field>
   </div>
   <div>
-    <label for="auteur">Auteur :</label>
-    <input type="auteur" [(ngModel)]="livre.auteur" class="form-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Auteur</mat-label>
+      <input matInput placeholder="Auteur" [(ngModel)]="livre.auteur">
+    </mat-form-field>
   </div>
-  <div>
+
+  <!-- <div>
     <label for="etiquettes">Etiquettes :</label>
     <input type="etiquettes" [(ngModel)]="livre.etiquettes">
-  </div>
-  <div>
-    <label for="statut">Statut : </label>
+  </div> -->
 
-    <div *ngFor="let statut of statuts">
-      <label for="{{statut}}">
-        <input id="{{statut}}" [value]='statut' type="radio" name="statuts" [(ngModel)]="livre.statut">
-        {{statut}}
-      </label>
-    </div>
-    <br>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Statut</mat-label>
+      <mat-select  placeholder="Statut" [(ngModel)]="livre.statut">
+        <mat-option *ngFor="let statut of statuts" [value]='statut'> {{ statut }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
   </div>
+
   <div class="form-group">
-    <button (click)="save()" class="btn btn-primary">
+    <button mat-button color="primary" (click)="save()">
       Enregistrer
     </button>
-    <a routerLink="/livres" class="btn btn-warning">Annuler</a>
+    <a routerLink="/livres" mat-button color="warn">Annuler</a>
   </div>
 </div>
