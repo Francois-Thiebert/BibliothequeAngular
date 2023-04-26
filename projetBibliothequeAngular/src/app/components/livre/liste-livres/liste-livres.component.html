@@ -20,6 +20,7 @@
       <td>{{ l.emprunts }}</td>
       <td>{{ l.etiquettes }}</td>
       <td>{{ l.statut }}</td>
+      <td>{{ l.statut }}</td>
 
       <td>
         <a routerLink="/livre/edit/{{ l.id }}"
@@ -31,6 +32,11 @@
           Supprimer
         </button>
       </td>
+      <!-- <td>
+        <button class="btn btn-danger" (click)="rendre(l.id!)">
+          rendre
+        </button>
+      </td> -->
     </tr>
   </tbody>
 

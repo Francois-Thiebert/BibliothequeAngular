@@ -5,6 +5,7 @@ import { Emprunt } from '../model/emprunt';
 import { Statut } from '../model/statut';
 import { Administrateur } from '../model/administrateur';
 import { Role } from '../model/role';
+import { Utilisateur } from '../model/utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,17 @@ export class ObjectToJsonService {
       login: adherent.login,
       password: adherent.password,
       role:Role.ROLE_USER
+    }
+    return obj;
+  }
+
+  public utilisateurToJson(utilisateur: Utilisateur): any {
+    let obj = {
+      id: utilisateur.id,
+      prenom: utilisateur.prenom,
+      nom: utilisateur.nom,
+      login: utilisateur.login,
+      password: utilisateur.password,
     }
     return obj;
   }

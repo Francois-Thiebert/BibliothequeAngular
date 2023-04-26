@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Livre } from '../model/livre';
 import { livreRest } from '../env';
 import { ObjectToJsonService } from './object-to-json.service';
+import { Emprunt } from '../model/emprunt';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class LivreService {
     return this.http.get<Livre>(`${livreRest}/${id}`);
   }
 
+  public getEmpruntActif(id: number): Observable<Emprunt> {
+    return this.http.get<Emprunt>(`${livreRest}/${id}/emprunt_actif`);
+  }
+
   public delete(id: number): Observable<void> {
     return this.http.delete<void>(`${livreRest}/${id}`);
   }
@@ -30,6 +35,8 @@ export class LivreService {
     this.convert.livreToJson(livre)
     );
   }
+
+  
 
   public create (livre: Livre): Observable<Livre> {
     return this.http.post<Livre>(
