@@ -24,10 +24,12 @@
 
         <td>
           <a mat-raised-button color="primary" routerLink="/livre/edit/{{ l.id }}"
-              routerLinkActive="active">Editer</a>
+              routerLinkActive="active">
+              <mat-icon>create</mat-icon>Editer</a>
         </td>
         <td>
           <button mat-raised-button color="warn" (click)="delete(l.id!)">
+            <mat-icon>delete</mat-icon>
             Supprimer
           </button>
         </td>
@@ -36,7 +38,8 @@
 
   </table>
 
-  <a mat-raised-button color="primary" routerLink="/livre/add">+ Nouveau livre</a>
+  <a mat-raised-button color="primary" routerLink="/livre/add">
+    <mat-icon>add</mat-icon> Nouveau livre</a>
 </div>
 
 

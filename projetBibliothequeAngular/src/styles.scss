@@ -1,28 +1,9 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+@include mat-core();
 
-@include mat.core();
+$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
 
-$my-app-primary: mat.define-palette(mat.$indigo-palette);
-$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-app-warn: mat.define-palette(mat.$red-palette);
-
-$my-app-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: teal,
-      accent: rgb(255, 227, 141),
-      warn: $my-app-warn,
-    ),
-  )
-);
-
-@include mat.all-component-themes($my-app-theme);
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+@include angular-material-theme($my-app-theme);
