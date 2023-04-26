@@ -12,6 +12,8 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class InscriptionComponent implements OnInit{
   form!: FormGroup;
+  hideA = true;
+  hideB = true;
 
   constructor(private userSrv: UtilisateurService, private router: Router,private adherentSrv: AdherentService) {}
 

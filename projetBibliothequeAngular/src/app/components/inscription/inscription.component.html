@@ -1,47 +1,73 @@
-<h2>Inscription</h2>
 
-<form (ngSubmit)="submit()" [formGroup]="form">
+  <h2>Inscription</h2>
+
+<div class="container">
+  <form (ngSubmit)="submit()" [formGroup]="form">
+
   <div class="form-group">
-    <label for="prenom">Prénom : </label>
-    <input id="prenom" class="form-control" formControlName="prenom"/>
+    <mat-form-field appearance="fill" >
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Prénom" id="prenom"
+      class="form-control" formControlName="prenom">
+    </mat-form-field>
   </div>
+
   <div class="form-group">
-    <label for="nom">Nom : </label>
-    <input id="nom" class="form-control" formControlName="nom"/>
+    <mat-form-field appearance="fill" >
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" id="nom"
+      class="form-control" formControlName="nom">
+    </mat-form-field>
   </div>
 
   <ng-container formGroupName="compteGroup">
     <div class="form-group">
-      <label for="login">Nom d'utilisateur : </label>
-      <input id="login" class="form-control" formControlName="login"/>
+      <mat-form-field appearance="outline" >
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput placeholder="Nom d'utilisateur" id="login"
+      class="form-control" formControlName="login">
+      </mat-form-field>
       <span *ngIf="
       form.get('compteGroup.login')?.dirty &&
       form.get('compteGroup.login')?.hasError('loginExist')">
     Ce nom d'utilisateur est déjà pris.</span>
+
     </div>
+
     <ng-container formGroupName="passwordGroup">
       <div class="form-group">
-        <label for="password">Mot de passe :</label>
-        <input id="password" class="form-control" formControlName="password">
+        <mat-form-field appearance="outline" [style.width.px]=300
+        hintLabel="Minuscule, majuscule et chiffre obligatoires">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput placeholder="Mot de passe" id="password"
+          class="form-control" formControlName="password"
+          [type]="hideA ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hideA = !hideA">{{hideA ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
       </div>
       <div class="form-group">
-        <label for="confirm">Veuillez confirmer votre mot de passe :</label>
-        <input id="confirm" class="form-control" formControlName="confirm"/>
+        <mat-form-field appearance="outline" [style.width.px]=300
+        hintLabel="Veuillez confirmer votre mot de passe">
+          <mat-label>Confirmation</mat-label>
+          <input matInput id="confirm" class="form-control" formControlName="confirm"
+          [type]="hideB ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hideB = !hideB">{{hideB ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
       </div>
     </ng-container>
   </ng-container>
-
+<br>
   <div>
-    <button
+    <button mat-button color="primary"
       type="submit"
-      class="btn btn-outline-primary"
       [disabled]="form.invalid"
     >
-      Valider
+    <mat-icon>done</mat-icon> Valider
     </button>
-    <a routerLink="/home" routerLinkActive="active" class="btn btn-link"
-      >Annuler</a
+    <a routerLink="/home" routerLinkActive="active" mat-button color="warn"
+      > <mat-icon>clear</mat-icon> Annuler</a
     >
   </div>
 
 </form>
+</div>
