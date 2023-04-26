@@ -1,0 +1,30 @@
+<h2>Aperçu du livre</h2>
+<hr>
+<div>
+  <div>
+    <label for="titre">Titre : {{livre.titre}}</label>
+  </div>
+  <br>
+  <div>
+    <label for="auteur">Auteur : {{livre.auteur}}</label>
+  </div>
+  <br>
+  <div>
+    <label for="etiquettes">Genre : {{livre.etiquettes}}</label>
+  </div>
+  <br>
+  <div>
+    <label for="statut">Statut : {{livre.statut}}</label>
+  </div>
+  <hr>
+  <div>
+    <button *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre)" class="btn btn-success">
+      Emprunter
+    </button>
+    <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
+  </div>
+  <hr>
+  <div>
+    <a routerLink="/emprunter" class="btn btn-warning">Retour</a>
+  </div>
+</div>

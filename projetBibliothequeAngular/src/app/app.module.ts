@@ -23,6 +23,7 @@ import { EmprunterComponent } from './components/emprunter/emprunter.component';
 import { InfosAdherentComponent } from './components/infos-adherent/infos-adherent.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { ApercuLivreComponent } from './components/livre/apercu-livre/apercu-livre.component';
 
 
 
@@ -45,6 +46,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     LivreComponent,
     EmprunterComponent,
     InfosAdherentComponent,
+    ApercuLivreComponent,
   ],
   imports: [
     BrowserModule,

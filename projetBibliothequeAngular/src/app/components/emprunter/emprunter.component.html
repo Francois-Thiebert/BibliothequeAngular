@@ -7,6 +7,7 @@
       <th>Auteur</th>
       <th>Genre</th>
       <th>Disponibilité</th>
+      <th>Lien</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -17,13 +18,19 @@
       <td>{{ l.etiquettes }}</td>
       <td>{{ l.statut }}</td>
       <td>
-        <button *ngIf="l.statut === 'DISPONIBLE'" class="btn btn-success" (click)="emprunter(l)">
+        <a routerLink="/livre/apercu/{{ l.id }}"
+            routerLinkActive="active"
+            class="btn btn-primary">Aperçu</a>
+      </td>
+      <td *ngIf="livre.statut === 'DISPONIBLE';else indisponible">
+        <button (click)="emprunter(livre)" class="btn btn-success">
           Emprunter
         </button>
         <!-- <button *ngIf="l.statut === 'EMPRUNTE'" class="btn btn-warning" (click)="emprunter(l)">
           Réserver
         </button> -->
       </td>
+      <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
     </tr>
   </tbody>
 
