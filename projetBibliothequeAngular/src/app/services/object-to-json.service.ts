@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Livre } from '../model/livre';
 import { Adherent } from '../model/adherent';
 import { Emprunt } from '../model/emprunt';
+import { Statut } from '../model/statut';
 
 @Injectable({
   providedIn: 'root'
@@ -29,24 +30,27 @@ export class ObjectToJsonService {
   public adherentToJson(adherent: Adherent): any {
     let obj = {
       id: adherent.id,
+      prenom: adherent.prenom,
+      nom: adherent.nom,
       login: adherent.login,
-      password: adherent.password
-    }
-    if (adherent.prenom) {
-      Object.assign(obj, {prenom: adherent.prenom});
-    }
-    if (adherent.nom) {
-      Object.assign(obj, {nom: adherent.nom});
+      password: adherent.password,
+      emprunts:adherent.emprunts
     }
     return obj;
   }
 
   public empruntToJson(emprunt: Emprunt): any {
     let obj = {
-      livreId: emprunt.livre?.id,
-      adherentId:1
+      id: emprunt.id,
+      emprunteur: emprunt.emprunteur,
+      livre: emprunt.livre,
+      dateDebut: emprunt.dateDebut,
+      dateFin: emprunt.dateFin,
+      rendu: emprunt.rendu
     }
     console.debug(obj);
     return obj;
   }
+
+
 }

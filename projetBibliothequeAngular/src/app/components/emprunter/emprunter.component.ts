@@ -1,4 +1,3 @@
-import { Statut } from './../../model/statut';
 import { Component } from '@angular/core';
 import { Adherent } from 'src/app/model/adherent';
 import { Emprunt } from 'src/app/model/emprunt';
@@ -15,6 +14,7 @@ import { LivreService } from 'src/app/services/livre.service';
 //liste de livre pour adhérents
 export class EmprunterComponent {
 
+  livre!: Livre;
   emprunt!: Emprunt;
   livres:Livre[]=[];
   emprunteur!: Adherent;
@@ -24,7 +24,9 @@ export class EmprunterComponent {
     this.initLivres();
     this.emprunt=new Emprunt();
     this.emprunteur=new Adherent();
-    this.emprunteur.id=1;
+    if(sessionStorage.getItem('utilisateur')){
+      this.emprunteur=JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
+    }
 
   }
 
@@ -35,16 +37,9 @@ export class EmprunterComponent {
   }
 
   emprunter (livre: Livre) {
-    this.emprunt.livre=livre
-    this.emprunt.emprunteur=this.emprunteur
-    this.emprunt.livre.statut=Statut.STATUT_EMPRUNTE;
-    console.debug(this.emprunt.livre.statut);
-    this.livreSrv.update(this.emprunt.livre);
-    this.empruntSrv.create(this.emprunt).subscribe(() => {
+    console.debug(livre)
+    this.empruntSrv.create(livre).subscribe(() => {
       this.initLivres();
     })
   }
 }
-
-
-

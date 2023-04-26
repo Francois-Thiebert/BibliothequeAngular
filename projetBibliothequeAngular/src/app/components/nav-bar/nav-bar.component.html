@@ -1,12 +1,18 @@
 <app-link etiquetteLien="Accueil" lien="/home"></app-link>
 
-<!-- Authentification -->
 <app-link etiquetteLien="S'inscrire" lien="/inscription"></app-link>
+
+<button *ngIf="logged" class="btn btn-link" (click)="logout()">deconnexion
+</button>
+
+
+
 <app-link etiquetteLien="Se connecter" lien="/login"></app-link>
 
-<!-- Côté Admin -->
+
+
 <app-link etiquetteLien="Livres" lien="/livres"></app-link>
 <app-link etiquetteLien="Adhérents" lien="/adherents"></app-link>
-
-<!-- Côté Adhérent -->
+<app-link etiquetteLien="Liste de Livres" lien="/livres"></app-link>
 <app-link etiquetteLien="Emprunter" lien="/emprunter"></app-link>
+<app-link etiquetteLien="Informations personnelles" lien="/infos-adherent"></app-link>
