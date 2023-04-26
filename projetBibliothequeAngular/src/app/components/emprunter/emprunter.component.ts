@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Adherent } from 'src/app/model/adherent';
 import { Emprunt } from 'src/app/model/emprunt';
 import { Livre } from 'src/app/model/livre';
@@ -14,10 +15,13 @@ import { LivreService } from 'src/app/services/livre.service';
 //liste de livre pour adhérents
 export class EmprunterComponent {
 
+  form!: FormGroup
+
   livre!: Livre;
   emprunt!: Emprunt;
   livres:Livre[]=[];
   emprunteur!: Adherent;
+  etiquettes: string[] = [];
 
   constructor(private livreSrv: LivreService, private empruntSrv: EmpruntService) {}
   ngOnInit(): void {
@@ -34,6 +38,19 @@ export class EmprunterComponent {
     this.livreSrv.allLivre().subscribe((livres: Livre[]) => {
       this.livres = livres;
     });
+  }
+
+  recherche(){
+    let rechercheJson = {
+      motifTitre: this.form.get('titre')?.value,
+      motifAuteur: this.form.get('auteur')?.value,
+      statut: this.form.get('statut')?.value,
+      etiquettes: this.etiquettes
+    };
+    this.livreSrv.recherche(rechercheJson).subscribe((livres) => {
+      this.livres = livres
+    })
+    
   }
 
   emprunter (livre: Livre) {
