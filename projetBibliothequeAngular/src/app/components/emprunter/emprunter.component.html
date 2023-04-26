@@ -15,17 +15,24 @@
 
 
   <div class="form-group">
-    <label for="statut">Auteur : </label>
+    <label for="statut">Disponibilité : </label>
     <select id="statut" class="form-control" formControlName="statut">
       <option value="DISPONIBLE">DISPONIBLE</option>
-      <option value="INDISPONIBLE">inDISPONIBLE</option>
+      <option value="INDISPONIBLE">INDISPONIBLE</option>
       <option value="EMPRUNTE">EMPRUNTÉ</option>
     </select>
   </div>
 
   <!-- ajouter les étiquettes -->
-  <label>label<span>span</span></label>
-  
+  <label for="statut">Etiquettes : </label>
+  <label  *ngFor="let e of etiquettesEnBase">
+    <span> </span>
+    <span (click)="ajout(e)" class="btn btn-primary">{{e.nom}}</span>
+    <span> </span>
+  </label>
+
+  <label  *ngFor="let e of etiquettesSelect">{{e.nom}}</label>
+
 
   <div>
     <button type="submit" class="btn btn-outline-primary">Lancer la recherche</button>
