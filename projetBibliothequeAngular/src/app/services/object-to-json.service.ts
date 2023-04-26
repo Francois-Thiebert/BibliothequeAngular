@@ -3,6 +3,7 @@ import { Livre } from '../model/livre';
 import { Adherent } from '../model/adherent';
 import { Emprunt } from '../model/emprunt';
 import { Statut } from '../model/statut';
+import { Administrateur } from '../model/administrateur';
 
 @Injectable({
   providedIn: 'root'
@@ -48,9 +49,19 @@ export class ObjectToJsonService {
       dateFin: emprunt.dateFin,
       rendu: emprunt.rendu
     }
-    console.debug(obj);
     return obj;
   }
 
- 
+
+  public administrateurToJson(administrateur: Administrateur): any {
+    let obj = {
+      id: administrateur.id,
+      prenom: administrateur.prenom,
+      nom: administrateur.nom,
+      login: administrateur.login,
+      password: administrateur.password
+    }
+    return obj;
+  }
+
 }

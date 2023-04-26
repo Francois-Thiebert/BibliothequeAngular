@@ -1,1 +1,30 @@
-<p>edit-administrateur works!</p>
+<h2>Edition d'un Administrateur</h2>
+
+<div>
+  <div>
+    <label for="id">Id :</label>
+    <input type="id" [(ngModel)]="administrateur.id" readonly class="form-control">
+  </div>
+  <div>
+    <label for="prenom">Prénom :</label>
+    <input type="prenom" [(ngModel)]="administrateur.prenom" class="form-control">
+  </div>
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="nom" [(ngModel)]="administrateur.nom" class="form-control">
+  </div>
+  <div>
+    <label for="login">Nom d'utilisateur :</label>
+    <input type="login" [(ngModel)]="administrateur.login" class="form-control">
+  </div>
+  <div>
+    <label for="password">Mot de passe :</label>
+    <input type="password" [(ngModel)]="administrateur.password" class="form-control">
+  </div>
+  <div class="form-group">
+    <button (click)="save()" class="btn btn-outline-primary">
+      enregistrer
+    </button>
+    <a routerLink="/administrateurs" class="btn btn-outline-warning">annuler</a>
+  </div>
+</div>

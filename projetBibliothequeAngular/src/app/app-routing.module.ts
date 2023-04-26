@@ -16,6 +16,8 @@ import { ListeAdherentsComponent } from './components/adherent/liste-adherents/l
 import { EditAdherentComponent } from './components/adherent/edit-adherent/edit-adherent.component';
 import { LivreComponent } from './components/livre/livre/livre.component';
 import { InfosAdherentComponent } from './components/infos-adherent/infos-adherent.component';
+import { EditAdministrateurComponent } from './components/adherent/edit-administrateur/edit-administrateur.component';
+import { ListeAdministrateursComponent } from './components/adherent/liste-administrateurs/liste-administrateurs.component';
 
 const routes: Routes = [
   {path: 'login',
@@ -53,6 +55,12 @@ const routes: Routes = [
 
   { path: 'infos-adherent',
   component: InfosAdherentComponent},
+
+  { path: 'administrateurs',
+  component: ListeAdministrateursComponent},
+
+  { path: 'administrateur/add',
+  component: EditAdministrateurComponent},
 
 
   { path: '**', component: NotFoundComponent },
