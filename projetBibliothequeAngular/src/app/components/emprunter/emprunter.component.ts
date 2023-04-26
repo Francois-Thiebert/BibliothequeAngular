@@ -14,6 +14,7 @@ import { LivreService } from 'src/app/services/livre.service';
 //liste de livre pour adhérents
 export class EmprunterComponent {
 
+  livre!: Livre;
   emprunt!: Emprunt;
   livres:Livre[]=[];
   emprunteur!: Adherent;
@@ -36,9 +37,8 @@ export class EmprunterComponent {
   }
 
   emprunter (livre: Livre) {
-    this.emprunt.livre=livre
-    this.emprunt.emprunteur=this.emprunteur
-    this.empruntSrv.create(this.emprunt).subscribe(() => {
+    console.debug(livre)
+    this.empruntSrv.create(livre).subscribe(() => {
       this.initLivres();
     })
   }

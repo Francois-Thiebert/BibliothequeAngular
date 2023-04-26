@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Livre } from '../model/livre';
 import { Adherent } from '../model/adherent';
 import { Emprunt } from '../model/emprunt';
+import { Statut } from '../model/statut';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +41,16 @@ export class ObjectToJsonService {
 
   public empruntToJson(emprunt: Emprunt): any {
     let obj = {
-      livreId: emprunt.livre?.id,
-      adherentId:1
+      id: emprunt.id,
+      emprunteur: emprunt.emprunteur,
+      livre: emprunt.livre,
+      dateDebut: emprunt.dateDebut,
+      dateFin: emprunt.dateFin,
+      rendu: emprunt.rendu
     }
     console.debug(obj);
     return obj;
   }
+
+ 
 }

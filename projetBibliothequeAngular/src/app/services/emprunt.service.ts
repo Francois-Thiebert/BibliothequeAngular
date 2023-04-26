@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Emprunt } from '../model/emprunt';
 import { ObjectToJsonService } from './object-to-json.service';
 import { empruntRest, empruntUserRest } from '../env';
+import { Livre } from '../model/livre';
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +30,16 @@ export class EmpruntService {
   }
 
   public update(emprunt: Emprunt): Observable<Emprunt> {
+    // console.debug(emprunt)
     return this.http.put<Emprunt>(`${empruntRest}/${emprunt.id}`,
     this.convert.empruntToJson(emprunt)
     );
   }
 
-  public create (emprunt: Emprunt): Observable<Emprunt> {
+  public create (livre: Livre): Observable<Emprunt> {
     return this.http.post<Emprunt>(
       empruntRest,
-      this.convert.empruntToJson(emprunt)
+      this.convert.livreToJson(livre)
     );
   }
 }

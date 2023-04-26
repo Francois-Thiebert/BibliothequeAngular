@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +21,9 @@ import { ListeAdministrateursComponent } from './components/adherent/liste-admin
 import { LivreComponent } from './components/livre/livre/livre.component';
 import { EmprunterComponent } from './components/emprunter/emprunter.component';
 import { InfosAdherentComponent } from './components/infos-adherent/infos-adherent.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import { InfosAdherentComponent } from './components/infos-adherent/infos-adhere
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

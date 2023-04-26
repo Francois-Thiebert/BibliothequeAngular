@@ -28,14 +28,16 @@
       <th>Auteur du livre</th>
       <th>Date d'emprunt</th>
       <th>A rendre avant le</th>
+      <th>rendre</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let e of adherent.emprunts">
+    <tr *ngFor="let e of emprunts">
       <td>{{ e.livre?.titre }}</td>
       <td>{{ e.livre?.auteur }}</td>
       <td>{{ e.dateDebut }}</td>
       <td>{{ e.dateFin }}</td>
+      <td><button *ngIf="!e.rendu" class="btn btn-text" (click)="rendre(e)">rendre</button></td>
     </tr>
   </tbody>
 </table>
