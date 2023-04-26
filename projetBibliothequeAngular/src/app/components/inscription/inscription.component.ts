@@ -1,3 +1,4 @@
+import { AdherentService } from 'src/app/services/adherent.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 export class InscriptionComponent implements OnInit{
   form!: FormGroup;
 
-  constructor(private userSrv: UtilisateurService, private router: Router) {}
+  constructor(private userSrv: UtilisateurService, private router: Router,private adherentSrv: AdherentService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -74,12 +75,10 @@ export class InscriptionComponent implements OnInit{
     let utilisateurJson = {
       prenom: this.form.get('prenom')?.value,
       nom: this.form.get('nom')?.value,
-      compte: {
-        login: this.form.get('compteGroup.login')?.value,
-        password: this.form.get('compteGroup.passwordGroup.password')?.value,
-      },
+      login: this.form.get('compteGroup.login')?.value,
+      password: this.form.get('compteGroup.passwordGroup.password')?.value
     };
-    this.userSrv.inscription(utilisateurJson).subscribe((utilisateur) => {
+    this.adherentSrv.inscription(utilisateurJson).subscribe((utilisateur) => {
       console.debug(utilisateur);
       this.router.navigateByUrl('/login')
     })

@@ -3,6 +3,7 @@ import { Livre } from '../model/livre';
 import { Adherent } from '../model/adherent';
 import { Emprunt } from '../model/emprunt';
 import { Statut } from '../model/statut';
+import { Role } from '../model/role';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +30,11 @@ export class ObjectToJsonService {
 
   public adherentToJson(adherent: Adherent): any {
     let obj = {
-      id: adherent.id,
       prenom: adherent.prenom,
       nom: adherent.nom,
       login: adherent.login,
       password: adherent.password,
-      emprunts:adherent.emprunts
+      role:Role.ROLE_USER
     }
     return obj;
   }
@@ -52,5 +52,5 @@ export class ObjectToJsonService {
     return obj;
   }
 
- 
+
 }

@@ -17,6 +17,9 @@ export class AdherentService {
     return this.http.get<Adherent[]>(adherentRest);
 
   }
+  public inscription(utilisateur: any): Observable<any> {
+    return this.http.post(adherentRest , utilisateur);
+  }
 
   public getById(id: number): Observable<Adherent> {
     return this.http.get<Adherent>(`${adherentRest}/${id}`);
