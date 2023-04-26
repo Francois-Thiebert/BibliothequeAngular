@@ -1,0 +1,16 @@
+* {
+  font-family: Roboto;
+  /* background-color: rgb(247, 251, 254);
+  background-size: auto; */
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+mat-drawer {
+  background-color: white;
+}
