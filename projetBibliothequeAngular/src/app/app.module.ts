@@ -31,6 +31,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatSidenavModule,
     MatDividerModule,
     MatIconModule,
+    MatCardModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

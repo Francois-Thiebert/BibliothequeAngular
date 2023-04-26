@@ -1,0 +1,17 @@
+
+
+.example-card {
+  max-width: 300px;
+}
+
+.image-container {
+  size-adjust: fill;
+  max-height: 500px;
+  max-width: 300px;
+  overflow: auto;
+}
+
+.couverture {
+  max-width: 300px;
+  max-height: 400px;
+}
