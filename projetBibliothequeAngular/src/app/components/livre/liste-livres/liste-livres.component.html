@@ -13,8 +13,9 @@
     </thead>
     <tbody class="">
       <tr *ngFor="let l of livres">
+
         <td>{{ l.id }}</td>
-        <td>{{ l.titre }}</td>
+        <td><a routerLink="/livre/apercu/{{ l.id }}">{{ l.titre }}</a></td>
         <td>{{ l.auteur }}</td>
         <td>{{ l.emprunts }}</td>
         <td>{{ l.etiquettes }}</td>
@@ -37,6 +38,7 @@
             Supprimer
           </button>
         </td>
+
       </tr>
     </tbody>
 
