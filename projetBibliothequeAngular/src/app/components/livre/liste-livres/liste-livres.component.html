@@ -8,8 +8,7 @@
         <th >Etiquettes</th>
         <th >Emprunts</th>
         <th >Statut</th>
-        <th>Edition</th>
-        <th>Suppression</th>
+        <th colspan="3" style="text-align: center">Actions</th>
       </tr>
     </thead>
     <tbody class="">
@@ -21,6 +20,12 @@
         <td>{{ l.etiquettes }}</td>
         <td>{{ l.statut }}</td>
 
+        <td>
+          <div *ngIf="l.statut === 'EMPRUNTE'"><a mat-raised-button color="info" (click)="rendre(l.id!)">
+            Rendre
+          </a></div>
+
+        </td>
         <td>
           <a mat-raised-button color="primary" routerLink="/livre/edit/{{ l.id }}"
               routerLinkActive="active">
