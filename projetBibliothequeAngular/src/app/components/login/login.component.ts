@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Adherent } from 'src/app/model/adherent';
+import { Utilisateur } from 'src/app/model/utilisateur';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent {
     // console.debug(form.controls['inputLogin']);
     if (form.valid) {
       this.loginSrv.login(this.login, this.password).subscribe({
-        next: (infos: Adherent) => {
+        next: (infos: Utilisateur) => {
           this.showError = false;
           sessionStorage.setItem(
             'token',

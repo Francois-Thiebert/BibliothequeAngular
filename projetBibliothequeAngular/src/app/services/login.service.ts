@@ -3,6 +3,7 @@ import { Adherent } from '../model/adherent';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { authRest } from '../env';
+import { Utilisateur } from '../model/utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ import { authRest } from '../env';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  public login(login: string, password: string): Observable<Adherent> {
+  public login(login: string, password: string): Observable<Utilisateur> {
     let headers: HttpHeaders = new HttpHeaders({
       Authorization: 'Basic ' + window.btoa(login + ':' + password),
     });
-    return this.http.get<Adherent>(authRest, { headers: headers });
+    return this.http.get<Utilisateur>(authRest, { headers: headers });
   }
 }
