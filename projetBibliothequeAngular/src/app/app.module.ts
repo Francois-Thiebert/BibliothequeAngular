@@ -36,6 +36,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FicheComponent } from './components/livre/fiche/fiche.component';
 
 
 
@@ -59,6 +60,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     EmprunterComponent,
     InfosAdherentComponent,
     ApercuLivreComponent,
+    FicheComponent,
   ],
   imports: [
     BrowserModule,

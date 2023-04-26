@@ -46,12 +46,14 @@ const routes: Routes = [
 
   { path: 'livre/:id',
   component: LivreComponent},
-  // à ajouter, + component de livre pour afficher les infos
 
   { path: 'adherents',
   component: ListeAdherentsComponent},
 
   { path: 'adherent/add',
+  component: EditAdherentComponent},
+
+  { path: 'adherent/edit/:id',
   component: EditAdherentComponent},
 
   { path: 'emprunter',
