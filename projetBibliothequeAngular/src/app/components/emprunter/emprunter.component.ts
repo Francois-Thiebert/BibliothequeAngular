@@ -1,8 +1,12 @@
+import { Etiquette } from './../../model/etiquette';
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Adherent } from 'src/app/model/adherent';
 import { Emprunt } from 'src/app/model/emprunt';
+import { EtiquetteNom } from 'src/app/model/etiquette-nom';
 import { Livre } from 'src/app/model/livre';
 import { EmpruntService } from 'src/app/services/emprunt.service';
+import { EtiquetteService } from 'src/app/services/etiquette.service';
 import { LivreService } from 'src/app/services/livre.service';
 
 @Component({
@@ -14,20 +18,41 @@ import { LivreService } from 'src/app/services/livre.service';
 //liste de livre pour adhérents
 export class EmprunterComponent {
 
+  form!: FormGroup
+
   livre!: Livre;
   emprunt!: Emprunt;
   livres:Livre[]=[];
   emprunteur!: Adherent;
+  etiquettesSelect: EtiquetteNom[] = [];
+  etiquettesEnBase: EtiquetteNom[] = [];
 
-  constructor(private livreSrv: LivreService, private empruntSrv: EmpruntService) {}
+  rechercheObj:any;
+
+
+
+  constructor(private livreSrv: LivreService, private empruntSrv: EmpruntService, private etiquetteSrv: EtiquetteService) {}
   ngOnInit(): void {
     this.initLivres();
+    this.initEtiquettes();
     this.emprunt=new Emprunt();
     this.emprunteur=new Adherent();
     if(sessionStorage.getItem('utilisateur')){
       this.emprunteur=JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
     }
+    this.form = new FormGroup({
+      titre: new FormControl(),
+      auteur: new FormControl(),
+      statut: new FormControl(),
+    })
 
+  }
+
+  initEtiquettes() {
+    this.etiquetteSrv.allEtiquettes().subscribe((etiquettes: EtiquetteNom[]) => {
+      this.etiquettesEnBase = etiquettes;
+      this.etiquettesEnBase.shift();
+    });
   }
 
   initLivres() {
@@ -36,11 +61,37 @@ export class EmprunterComponent {
     });
   }
 
+  recherche(){
+
+    let rechercheJson={
+      motifTitre: this.form.get('titre')?.value,
+      motifAuteur: this.form.get('auteur')?.value,
+      statut: this.form.get('statut')?.value,
+      etiquettes: this.etiquettesSelect.map(et => { return et.nom})
+     }
+    this.rechercheObj=rechercheJson;
+    this.livreSrv.recherche(rechercheJson).subscribe((livres) => {
+      this.livres = livres
+
+    })
+    console.debug(this.rechercheObj)
+    return this.livres;
+  }
+
   emprunter (livre: Livre) {
     console.debug(livre)
     this.empruntSrv.create(livre).subscribe(() => {
       this.initLivres();
     })
+  }
+
+  ajout(etiquette: EtiquetteNom){
+    if(this.etiquettesSelect.includes(etiquette)){
+      this.etiquettesSelect=this.etiquettesSelect.filter(e => e !== etiquette);
+    }
+    else {
+      this.etiquettesSelect.push(etiquette);
+    }
   }
 }
 

@@ -1,5 +1,45 @@
 <h1>Emprunter</h1>
 <hr>
+
+<p>moteur de recherche</p>
+<form (ngSubmit)="recherche()" [formGroup]="form">
+  <div class="form-group">
+    <label for="titre">titre : </label>
+    <input id="titre" class="form-control" formControlName="titre"/>
+  </div>
+  <div class="form-group">
+    <label for="auteur">Auteur : </label>
+    <input id="auteur" class="form-control" formControlName="auteur"/>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="statut">Disponibilité : </label>
+    <select id="statut" class="form-control" formControlName="statut">
+      <option value="DISPONIBLE">DISPONIBLE</option>
+      <option value="INDISPONIBLE">INDISPONIBLE</option>
+      <option value="EMPRUNTE">EMPRUNTÉ</option>
+    </select>
+  </div>
+
+  <!-- ajouter les étiquettes -->
+  <label for="statut">Etiquettes : </label>
+  <label  *ngFor="let e of etiquettesEnBase">
+    <span> </span>
+    <span (click)="ajout(e)" class="btn btn-primary"
+    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</span>
+    <span> </span>
+  </label>
+
+
+
+  <div>
+    <button type="submit" class="btn btn-outline-primary">Lancer la recherche</button>
+  </div>
+
+</form>
+
 <table class ="table">
   <thead>
     <tr>
