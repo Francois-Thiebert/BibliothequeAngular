@@ -33,8 +33,7 @@
   <!-- Côté Adhérent -->
   <a mat-button color="secondary" routerLink="/emprunter">
     <mat-icon> local_library</mat-icon>Emprunter</a>
-
+<br>
 <a mat-button color="secondary" *ngIf="logged" routerLink="/infos-adherent">Profil</a>
-<a mat-button color="secondary" *ngIf="logged" class="btn btn-link" (click)="logout()">Déconnexion
-</a>
+
 </div>

@@ -8,12 +8,18 @@
     La Biblio Tech</a>
   <span id="span-toolbar"></span>
 
-
+  <span *ngIf="!logged">
   <a mat-button color="secondary" routerLink="/login">
     Se connecter</a>
-
+    /
     <a mat-button color="secondary" routerLink="/inscription">
       S'inscrire</a>
+    </span>
+
+  <span *ngIf="logged">
+    <a mat-button color="secondary" (click)="logout()">
+      Déconnexion</a>
+  </span>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container">
