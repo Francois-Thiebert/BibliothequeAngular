@@ -27,6 +27,7 @@ export class ApercuLivreComponent implements OnInit{
           this.livre = livre;
         });
       }
+      console.debug(this.livre.etiquettes)
     });
   }
 

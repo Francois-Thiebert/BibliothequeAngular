@@ -18,7 +18,7 @@
         <td><a routerLink="/livre/apercu/{{ l.id }}">{{ l.titre }}</a></td>
         <td>{{ l.auteur }}</td>
         <td>{{ l.emprunts }}</td>
-        <td>{{ l.etiquettes }}</td>
+        <td><span *ngFor="let e of l.etiquettes">{{ e.nom }}</span></td>
         <td>{{ l.statut }}</td>
 
         <td>
