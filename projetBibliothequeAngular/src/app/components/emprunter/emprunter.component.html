@@ -1,26 +1,30 @@
+<div class="container">
+
 <h1>Emprunter</h1>
 <hr>
 
-<p>moteur de recherche</p>
 <form (ngSubmit)="recherche()" [formGroup]="form">
   <div class="form-group">
-    <label for="titre">titre : </label>
-    <input id="titre" class="form-control" formControlName="titre"/>
-  </div>
-  <div class="form-group">
-    <label for="auteur">Auteur : </label>
-    <input id="auteur" class="form-control" formControlName="auteur"/>
-  </div>
-
-
+    <mat-form-field>
+    <mat-label for="titre">Titre</mat-label>
+    <input matInput id="titre" class="form-control" formControlName="titre"/>
+  </mat-form-field></div>
 
   <div class="form-group">
-    <label for="statut">Disponibilité : </label>
-    <select id="statut" class="form-control" formControlName="statut">
-      <option value="DISPONIBLE">DISPONIBLE</option>
-      <option value="INDISPONIBLE">INDISPONIBLE</option>
-      <option value="EMPRUNTE">EMPRUNTÉ</option>
-    </select>
+    <mat-form-field>
+    <mat-label for="auteur">Auteur</mat-label>
+    <input matInput id="auteur" class="form-control" formControlName="auteur"/>
+  </mat-form-field></div>
+
+  <div class="form-group">
+    <mat-form-field>
+    <mat-label></mat-label>
+    <mat-select id="statut" placeholder="Disponibilité" class="form-control" formControlName="statut">
+      <mat-option value="DISPONIBLE">DISPONIBLE</mat-option>
+      <mat-option value="INDISPONIBLE">INDISPONIBLE</mat-option>
+      <mat-option value="EMPRUNTE">EMPRUNTÉ</mat-option>
+    </mat-select>
+  </mat-form-field>
   </div>
 
   <!-- ajouter les étiquettes -->
@@ -32,23 +36,25 @@
     <span> </span>
   </label>
 
-
-
+<br>
+<p></p>
+<br>
   <div>
-    <button type="submit" class="btn btn-outline-primary">Lancer la recherche</button>
+    <button type="submit"  mat-button color="primary">Lancer la recherche</button>
   </div>
 
 </form>
 
-<table class ="table">
+<br>
+
+<table class ="table table-hover table-striped">
   <thead>
     <tr>
       <th>Titre</th>
       <th>Auteur</th>
       <th>Genre</th>
       <th>Disponibilité</th>
-      <th>Lien</th>
-      <th>Action</th>
+      <th colspan="2" style="text-align: center">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -58,14 +64,14 @@
       <td>{{ l.etiquettes }}</td>
       <td>{{ l.statut }}</td>
       <td>
-        <a routerLink="/livre/apercu/{{ l.id }}"
+        <a a mat-raised-button color="info" routerLink="/livre/apercu/{{ l.id }}"
             routerLinkActive="active"
-            class="btn btn-primary">Aperçu</a>
+            ><mat-icon>find_in_page</mat-icon>Voir</a>
       </td>
       <td *ngIf="l.statut === 'DISPONIBLE';else indisponible">
-        <button (click)="emprunter(l)" class="btn btn-success">
-          Emprunter
-        </button>
+        <a mat-raised-button color="primary" (click)="emprunter(l)">
+          <mat-icon>add_shopping_cart</mat-icon>Emprunter
+        </a>
         <!-- <button *ngIf="l.statut === 'EMPRUNTE'" class="btn btn-warning" (click)="emprunter(l)">
           Réserver
         </button> -->
@@ -78,4 +84,4 @@
 
 </table>
 
-
+</div>
