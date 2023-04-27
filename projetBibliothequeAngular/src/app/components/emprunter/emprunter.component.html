@@ -63,7 +63,7 @@
             class="btn btn-primary">Aperçu</a>
       </td>
       <td *ngIf="l.statut === 'DISPONIBLE';else indisponible">
-        <button (click)="emprunter(livre)" class="btn btn-success">
+        <button (click)="emprunter(l)" class="btn btn-success">
           Emprunter
         </button>
         <!-- <button *ngIf="l.statut === 'EMPRUNTE'" class="btn btn-warning" (click)="emprunter(l)">

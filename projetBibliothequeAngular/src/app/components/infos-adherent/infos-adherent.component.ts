@@ -30,7 +30,7 @@ export class InfosAdherentComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('utilisateur')){
       this.adherent=JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
-      
+
     }
     this.initEmprunt(); // Tu avais oublié d'ajouter cette ligne François espèce de faquin ;)
     this.adherent.emprunts=this.emprunts;
@@ -51,6 +51,6 @@ export class InfosAdherentComponent implements OnInit {
 
   }
 
- 
+
 
 }
