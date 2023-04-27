@@ -41,6 +41,12 @@ export class LivreService {
     );
   }
 
+  public updateWithEtiquettes(livre: Livre): Observable<Livre> {
+    return this.http.put<Livre>(`${livreRest}/etiquettes/${livre.id}`,
+    this.convert.livreToJson(livre)
+    );
+  }
+
 
 
 
