@@ -1,5 +1,20 @@
 <h1>Bienvenue sur la Biblio Tech !</h1>
-<p>{{ welcome }}</p>
 
-<div class="flex-container"></div>
+<div class="flex-container">
+  <h3>Sélection du jour</h3>
+
+
+  <ng-container *ngFor="let livre of livres.slice(0, 5)">
+    <mat-card class="fiche" routerLink = "/livre/apercu/{{ livre.id }}">
+      <mat-card-header>
+        <mat-card-title>{{ livre.titre }}</mat-card-title>
+        <mat-card-subtitle>{{ livre.auteur }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+    <div class="hide" style="text-align: center;">Voir l'aperçu</div>
+    <br>
+  </ng-container>
+</div>
 

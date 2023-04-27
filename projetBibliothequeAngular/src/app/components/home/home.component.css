@@ -1,0 +1,10 @@
+
+
+.hide {
+  display: none;
+}
+
+mat-card:hover + .hide {
+  display: block;
+  color: rgb(37, 37, 121);
+}
