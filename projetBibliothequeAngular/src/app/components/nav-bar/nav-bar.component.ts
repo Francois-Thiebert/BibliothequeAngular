@@ -31,5 +31,14 @@ export class NavBarComponent {
     return false;
   }
 
+  get adherent(): boolean {
+    if (sessionStorage.getItem('utilisateur')) {
+      let utilisateur: Utilisateur  = JSON.parse(
+        sessionStorage.getItem('utilisateur')!
+      ) as Utilisateur;
+      return utilisateur.role == Role.ROLE_ADHERENT;
+    }
+    return false;
+  }
 
 }

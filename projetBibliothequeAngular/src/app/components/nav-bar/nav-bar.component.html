@@ -7,17 +7,19 @@
 
 
   <!-- Authentification -->
+  <div *ngIf="!logged">
   <a mat-button color="secondary" routerLink="/inscription">
     <mat-icon>person_add</mat-icon>S'inscrire</a>
 <br>
   <a mat-button color="secondary" routerLink="/login">
     <mat-icon>how_to_reg</mat-icon>Se connecter</a>
-
+  </div>
 
   <br>
 
 
   <!-- Côté Admin -->
+  <div *ngIf="admin">
   <a mat-button color="secondary" routerLink="/livres">
     <mat-icon>library_books</mat-icon>Livres</a>
 <br>
@@ -26,14 +28,16 @@
 <br>
   <a mat-button color="secondary" routerLink="/administrateurs">
     <mat-icon>list</mat-icon>Administrateurs</a>
-
+  </div>
   <br>
 
 
   <!-- Côté Adhérent -->
+  <div *ngIf="adherent">
   <a mat-button color="secondary" routerLink="/emprunter">
     <mat-icon> local_library</mat-icon>Emprunter</a>
 <br>
-<a mat-button color="secondary" *ngIf="logged" routerLink="/infos-adherent">Profil</a>
-
+<a mat-button color="secondary" *ngIf="logged" routerLink="/infos-adherent">
+  <mat-icon>account_circle</mat-icon>Profil</a>
+</div>
 </div>

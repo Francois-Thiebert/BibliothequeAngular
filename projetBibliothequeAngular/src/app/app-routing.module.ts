@@ -36,7 +36,7 @@ const routes: Routes = [
 
   { path: 'livres',
   component: ListeLivresComponent,
-  canActivate: [AdminGuardService],},
+  canActivate: [AdminGuardService]},
 
   { path: 'livre/add',
   component: EditLivreComponent,

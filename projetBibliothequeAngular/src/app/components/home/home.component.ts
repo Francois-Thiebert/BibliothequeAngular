@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit{
   livres: Livre[] = [];
 
   get welcome() {
-      let _welcome = 'bonjour ';
+      let _welcome = 'Bonjour ';
       if (sessionStorage.getItem('utilisateur')) {
         let compte = JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
-        _welcome = _welcome + compte.login;
+        _welcome = _welcome + compte.login + ' !';
       }
       return _welcome;
   }
