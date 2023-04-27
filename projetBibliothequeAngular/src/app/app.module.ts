@@ -36,6 +36,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { FicheComponent } from './components/livre/fiche/fiche.component';
 
 
@@ -79,7 +80,8 @@ import { FicheComponent } from './components/livre/fiche/fiche.component';
     MatDividerModule,
     MatIconModule,
     MatCardModule,
-	  MatExpansionModule,
+    MatExpansionModule,
+    MatToolbarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

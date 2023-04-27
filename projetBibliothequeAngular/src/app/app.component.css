@@ -15,3 +15,10 @@ mat-drawer {
   background-color: white;
 }
 
+#span-toolbar {
+  flex: 2 2 auto;
+}
+
+#mini-span {
+  flex: 3 3 auto;
+}

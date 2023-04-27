@@ -1,3 +1,19 @@
+<mat-toolbar>
+  <button mat-mini-fab color="primary" (click)="drawer.toggle()">
+  </button>
+
+  <span id="mini-span"></span>
+  <a mat-button color="primary" routerLink="/home">La Biblio Tech</a>
+  <span id="span-toolbar"></span>
+
+
+  <a mat-button color="secondary" routerLink="/login">
+    Se connecter</a>
+
+    <a mat-button color="secondary" routerLink="/inscription">
+      S'inscrire</a>
+</mat-toolbar>
+
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div>
@@ -5,11 +21,6 @@
     </div>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="example-sidenav-content">
-      <button mat-button (click)="drawer.toggle()">
-        Navigation
-      </button>
-    </div>
     <router-outlet></router-outlet>
 
   </mat-drawer-content>
