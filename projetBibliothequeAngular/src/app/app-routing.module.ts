@@ -26,47 +26,61 @@ const routes: Routes = [
     canActivate: [AnonymousGuardService],},
 
   { path: 'home',
-    component: HomeComponent},
+    component: HomeComponent,
+    canActivate: [AuthGuardService]},
+
 
   { path: 'inscription',
     component: InscriptionComponent,
     canActivate: [AnonymousGuardService],},
 
   { path: 'livres',
-  component: ListeLivresComponent},
+  component: ListeLivresComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'livre/add',
-  component: EditLivreComponent},
+  component: EditLivreComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'livre/edit/:id',
-  component: EditLivreComponent},
+  component: EditLivreComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'livre/apercu/:id',
-  component: ApercuLivreComponent},
+  component: ApercuLivreComponent,
+  canActivate: [AuthGuardService],},
 
   { path: 'livre/:id',
-  component: LivreComponent},
+  component: LivreComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'adherents',
-  component: ListeAdherentsComponent},
+  component: ListeAdherentsComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'adherent/add',
-  component: EditAdherentComponent},
+  component: EditAdherentComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'adherent/edit/:id',
-  component: EditAdherentComponent},
+  component: EditAdherentComponent,
+  canActivate: [AdminGuardService],},
 
   { path: 'emprunter',
-  component: EmprunterComponent},
+  component: EmprunterComponent,
+  canActivate: [UserGuardService],},
 
   { path: 'infos-adherent',
-  component: InfosAdherentComponent},
+  component: InfosAdherentComponent,
+  canActivate: [UserGuardService],},
 
   { path: 'administrateurs',
-  component: ListeAdministrateursComponent},
+  component: ListeAdministrateursComponent,
+  canActivate: [AdminGuardService]},
 
   { path: 'administrateur/add',
-  component: EditAdministrateurComponent},
+  component: EditAdministrateurComponent,
+  canActivate: [AdminGuardService]},
 
 
   { path: '**', component: NotFoundComponent },

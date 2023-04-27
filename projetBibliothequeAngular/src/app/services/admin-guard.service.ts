@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/r
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../model/utilisateur';
 import { Role } from '../model/role';
+import { Administrateur } from '../model/administrateur';
 
 @Injectable({
   providedIn: 'root'

@@ -19,11 +19,12 @@ export class UserGuardService {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
+      console.log(sessionStorage.getItem('utilisateur'));
     if (sessionStorage.getItem('utilisateur')) {
       let utilisateur: Utilisateur = JSON.parse(
         sessionStorage.getItem('utilisateur')!
       ) as Utilisateur;
-      return utilisateur.role == Role.ROLE_USER;
+      return utilisateur.role == Role.ROLE_ADHERENT;
     }
     return false;
   }
