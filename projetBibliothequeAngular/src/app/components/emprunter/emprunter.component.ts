@@ -79,7 +79,6 @@ export class EmprunterComponent {
   }
 
   emprunter (livre: Livre) {
-    console.debug(livre)
     this.empruntSrv.create(livre).subscribe(() => {
       this.initLivres();
     })

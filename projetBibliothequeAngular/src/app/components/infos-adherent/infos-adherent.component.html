@@ -1,3 +1,4 @@
+<div class="flex-container rounded">
 <h1>Information personnelles</h1>
 <h2>Informations utilisateur</h2>
 <table class ="table">
@@ -21,7 +22,7 @@
 
 <h2>Historique d'emprunts</h2>
 
-<table class ="table">
+<table class ="table table-hover table-striped">
   <thead>
     <tr>
       <th>Titre du livre</th>
@@ -40,7 +41,8 @@
       <td>{{ e.dateFin }}</td>
       <td *ngIf="e.rendu==true">Rendu</td>
       <td *ngIf="e.rendu==false">En cours</td>
-      <td><button *ngIf="!e.rendu" class="btn btn-text" (click)="rendre(e)">rendre</button></td>
+      <td><button mat-button color="primary" *ngIf="!e.rendu" (click)="rendre(e)">Rendre</button></td>
     </tr>
   </tbody>
 </table>
+</div>

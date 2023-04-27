@@ -18,11 +18,12 @@
   <hr>
   <mat-card-footer>
     <span>
-      <button mat-button color="primary" *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre)">
+      <button mat-button color="primary" *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre) ">
         Emprunter
       </button>
-      <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
-    <span></span>
+      <ng-template #indisponible><a style="margin: 5px;" mat-raised-button disabled>
+        <mat-icon>highlight_off</mat-icon>Indisponible</a></ng-template>
+    <span class="mini-span"></span>
       <a routerLink="/emprunter" mat-button color="warn">Retour</a>
     </span>
   </mat-card-footer>

@@ -72,12 +72,10 @@
         <a mat-raised-button color="primary" (click)="emprunter(l)">
           <mat-icon>add_shopping_cart</mat-icon>Emprunter
         </a>
-        <!-- <button *ngIf="l.statut === 'EMPRUNTE'" class="btn btn-warning" (click)="emprunter(l)">
-          Réserver
-        </button> -->
       </td>
       <td>
-      <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
+      <ng-template #indisponible><a style="margin-top: 10px;margin-left: 8px;" mat-raised-button disabled>
+        <mat-icon>highlight_off</mat-icon>Indisponible</a></ng-template>
     </td>
     </tr>
   </tbody>
