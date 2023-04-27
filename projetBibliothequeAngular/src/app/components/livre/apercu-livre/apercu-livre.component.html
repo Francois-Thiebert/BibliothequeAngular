@@ -7,21 +7,21 @@
   </mat-card-header>
   <br>
   <div>
-    <label for="etiquettes">Genre : {{livre.etiquettes}}</label>
+    <mat-label for="etiquettes">Genre : {{livre.etiquettes}}</mat-label>
   </div>
   <br>
   <div>
     <label for="statut">Statut : {{livre.statut}}</label>
   </div>
   <hr>
-  <div>
-    <button *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre)" class="btn btn-success">
-      Emprunter
-    </button>
-    <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
-  </div>
-  <hr>
-  <div>
-    <a routerLink="/emprunter" class="btn btn-warning">Retour</a>
-  </div>
+  <mat-card-footer>
+    <span>
+      <button mat-button color="primary" *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre)">
+        Emprunter
+      </button>
+      <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
+
+      <a routerLink="/emprunter" mat-button color="warn">Retour</a>
+    </span>
+  </mat-card-footer>
 </mat-card>

@@ -28,7 +28,8 @@
       <th>Auteur du livre</th>
       <th>Date d'emprunt</th>
       <th>A rendre avant le</th>
-      <th>rendre</th>
+      <th>Statut</th>
+      <th>Rendre</th>
     </tr>
   </thead>
   <tbody>
@@ -37,6 +38,8 @@
       <td>{{ e.livre?.auteur }}</td>
       <td>{{ e.dateDebut }}</td>
       <td>{{ e.dateFin }}</td>
+      <td *ngIf="e.rendu==true">Rendu</td>
+      <td *ngIf="e.rendu==false">En cours</td>
       <td><button *ngIf="!e.rendu" class="btn btn-text" (click)="rendre(e)">rendre</button></td>
     </tr>
   </tbody>
