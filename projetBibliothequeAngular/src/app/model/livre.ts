@@ -1,5 +1,6 @@
 import { Emprunt } from "./emprunt";
 import { Etiquette } from "./etiquette";
+import { EtiquetteNom } from "./etiquette-nom";
 import { Statut } from "./statut";
 
 export class Livre {
@@ -35,11 +36,11 @@ export class Livre {
     this._statut = value;
   }
 
-  private _etiquettes?: Etiquette[] | undefined;
-  public get etiquettes(): Etiquette[] | undefined {
+  private _etiquettes?: EtiquetteNom[] | undefined;
+  public get etiquettes(): EtiquetteNom[] | undefined {
     return this._etiquettes;
   }
-  public set etiquettes(value: Etiquette[] | undefined) {
+  public set etiquettes(value: EtiquetteNom[] | undefined) {
     this._etiquettes = value;
   }
 

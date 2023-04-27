@@ -11,11 +11,21 @@
       <input matInput placeholder="Auteur" [(ngModel)]="livre.auteur">
     </mat-form-field>
   </div>
-
   <!-- <div>
-    <label for="etiquettes">Etiquettes :</label>
-    <input type="etiquettes" [(ngModel)]="livre.etiquettes">
+    <mat-form-field>
+    <mat-label for="statut">Etiquettes</mat-label>
+    <mat-chip-listbox *ngFor="let e of etiquettesEnBase" [(ngModel)]="livre.etiquettes">
+      <mat-chip-option>{e.nom}</mat-chip-option>
+    </mat-chip-listbox>
+    </mat-form-field>
   </div> -->
+
+  <label  *ngFor="let e of etiquettesEnBase">
+    <span> </span>
+    <span (click)="ajout(e)" class="btn btn-primary"
+    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</span>
+    <span> </span>
+  </label>
 
 
   <div>

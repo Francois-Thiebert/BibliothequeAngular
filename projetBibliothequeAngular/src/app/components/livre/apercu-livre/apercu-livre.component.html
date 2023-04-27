@@ -1,13 +1,10 @@
 <h2>Aperçu du livre</h2>
 <hr>
-<div>
-  <div>
-    <label for="titre">Titre : {{livre.titre}}</label>
-  </div>
-  <br>
-  <div>
-    <label for="auteur">Auteur : {{livre.auteur}}</label>
-  </div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ livre.titre }}</mat-card-title>
+    <mat-card-subtitle>{{ livre.auteur }}</mat-card-subtitle>
+  </mat-card-header>
   <br>
   <div>
     <label for="etiquettes">Genre : {{livre.etiquettes}}</label>
@@ -27,4 +24,4 @@
   <div>
     <a routerLink="/emprunter" class="btn btn-warning">Retour</a>
   </div>
-</div>
+</mat-card>

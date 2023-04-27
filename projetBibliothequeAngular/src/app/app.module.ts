@@ -37,6 +37,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatChipsModule} from '@angular/material/chips';
 import { FicheComponent } from './components/livre/fiche/fiche.component';
 
 
@@ -81,6 +82,7 @@ import { FicheComponent } from './components/livre/fiche/fiche.component';
     MatCardModule,
     MatExpansionModule,
     MatToolbarModule,
+    MatChipsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

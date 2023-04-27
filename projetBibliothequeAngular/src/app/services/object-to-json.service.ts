@@ -22,7 +22,9 @@ export class ObjectToJsonService {
       statut: livre.statut,
     };
     if (livre.etiquettes) {
-      Object.assign(obj, {etiquettes: livre.etiquettes});
+      Object.assign(obj, {etiquettes: livre.etiquettes.map(e=>{
+        return e.nom;
+      })});
     }
     if (livre.emprunts) {
       Object.assign(obj, {emprunts: livre.emprunts});

@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Livre } from 'src/app/model/livre';
 import { LivreService } from 'src/app/services/livre.service';
 import { Statut } from 'src/app/model/statut';
+import { EtiquetteNom } from 'src/app/model/etiquette-nom';
+import { EtiquetteService } from 'src/app/services/etiquette.service';
 
 @Component({
   selector: 'app-edit-livre',
@@ -13,12 +15,15 @@ import { Statut } from 'src/app/model/statut';
 export class EditLivreComponent implements OnInit{
   livre!: Livre;
   statuts: Statut[]=[Statut.STATUT_DISPONIBLE,Statut.STATUT_EMPRUNTE,Statut.STATUT_INDISPONIBLE];
+  etiquettesSelect: EtiquetteNom[] = [];
+  etiquettesEnBase: EtiquetteNom[] = [];
   // string[] = ["DISPONIBLE","EMPRUNTE","INDISPONIBLE"];
 
   constructor(
     private aR: ActivatedRoute,
     private livreSrv: LivreService,
     private router: Router,
+    private etiquetteSrv: EtiquetteService,
   ) {}
 
   ngOnInit(): void {
@@ -30,10 +35,29 @@ export class EditLivreComponent implements OnInit{
         });
       }
     });
+
+    this.initEtiquettes();
+  }
+
+  initEtiquettes() {
+    this.etiquetteSrv.allEtiquettes().subscribe((etiquettes: EtiquetteNom[]) => {
+      this.etiquettesEnBase = etiquettes;
+      this.etiquettesEnBase.shift();
+    });
+  }
+
+  ajout(etiquette: EtiquetteNom){
+    if(this.etiquettesSelect.includes(etiquette)){
+      this.etiquettesSelect=this.etiquettesSelect.filter(e => e !== etiquette);
+    }
+    else {
+      this.etiquettesSelect.push(etiquette);
+    }
   }
 
   save() {
     let obvResult: Observable<Livre>;
+    this.livre.etiquettes=this.etiquettesSelect;
     if (this.livre.id) {
       obvResult = this.livreSrv.update(this.livre);
     } else {

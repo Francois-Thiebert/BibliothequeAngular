@@ -1,11 +1,11 @@
 import { Livre } from "./livre";
 
 export class Etiquette {
-  private _id?: number | undefined;
-  public get id(): number | undefined {
+  private _id?: string | undefined;
+  public get id(): string | undefined {
     return this._id;
   }
-  public set id(value: number | undefined) {
+  public set id(value: string | undefined) {
     this._id = value;
   }
   private _etiquetteParent?: Etiquette | undefined;
