@@ -41,7 +41,7 @@ export class ListeLivresComponent implements OnInit{
       livre.statut = Statut.STATUT_DISPONIBLE
       //TODO on update les QUE SI ON A TROUVÉ UN EMPRUNT ACTIFS, sinon on ne modif pas le statut du livre
       this.livreSrv.update(livre).subscribe(() => this.initLivres())
-    })   
+    })
 
   }
 

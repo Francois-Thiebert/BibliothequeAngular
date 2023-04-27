@@ -6,19 +6,17 @@
         <th >Titre</th>
         <th >Auteur</th>
         <th >Etiquettes</th>
-        <th >Emprunts</th>
         <th >Statut</th>
         <th colspan="3" style="text-align: center">Actions</th>
       </tr>
     </thead>
-    <tbody class="">
+    <tbody>
       <tr *ngFor="let l of livres">
 
         <td>{{ l.id }}</td>
         <td><a routerLink="/livre/apercu/{{ l.id }}">{{ l.titre }}</a></td>
         <td>{{ l.auteur }}</td>
-        <td>{{ l.emprunts }}</td>
-        <td><span *ngFor="let e of l.etiquettes">{{ e.nom }}</span></td>
+        <td><div *ngFor="let e of l.etiquettes">{{ e.nom }}</div></td>
         <td>{{ l.statut }}</td>
 
         <td>
