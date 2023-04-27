@@ -6,15 +6,16 @@
     <mat-card-subtitle>{{ livre.auteur }}</mat-card-subtitle>
   </mat-card-header>
   <br>
-  <div >
+  <div class="card-content">
     <mat-label for="etiquettes">Genre :</mat-label>
     <!-- <div *ngFor="let e in livre.etiquettes">{{ e.nom }}</div> -->
-    <span *ngFor="let e of livre.etiquettes">{{ e.nom }}</span>
-  </div>
+    <mat-chip-listbox *ngFor="let e of livre.etiquettes">
+      <mat-chip>{{ e.nom }}</mat-chip>
+    </mat-chip-listbox>
+
   <br>
-  <div>
-    <label for="statut">Statut : {{livre.statut}}</label>
-  </div>
+    <div>Statut : {{livre.statut}}</div>
+</div>
   <hr>
   <mat-card-footer>
     <span>

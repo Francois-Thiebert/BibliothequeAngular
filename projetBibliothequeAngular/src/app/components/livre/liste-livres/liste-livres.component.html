@@ -16,7 +16,9 @@
         <td>{{ l.id }}</td>
         <td><a routerLink="/livre/apercu/{{ l.id }}">{{ l.titre }}</a></td>
         <td>{{ l.auteur }}</td>
-        <td><div *ngFor="let e of l.etiquettes">{{ e.nom }}</div></td>
+        <td><mat-chip-listbox *ngFor="let e of l.etiquettes">
+          <mat-chip>{{ e.nom }}</mat-chip>
+        </mat-chip-listbox></td>
         <td>{{ l.statut }}</td>
 
         <td>
