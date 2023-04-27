@@ -40,7 +40,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FicheComponent } from './components/livre/fiche/fiche.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

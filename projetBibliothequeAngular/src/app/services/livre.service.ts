@@ -5,6 +5,7 @@ import { Livre } from '../model/livre';
 import { livreRest } from '../env';
 import { ObjectToJsonService } from './object-to-json.service';
 import { Emprunt } from '../model/emprunt';
+import { Recherche } from '../model/recherche';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class LivreService {
   public allLivre(): Observable<Livre[]> {
     return this.http.get<Livre[]>(livreRest);
 
+  }
+
+  public recherche(recherche: any): Observable<Livre[]>{
+    return this.http.post<Livre[]>(`${livreRest}/recherche`, recherche);
   }
 
   public getById(id: number): Observable<Livre> {
@@ -36,7 +41,8 @@ export class LivreService {
     );
   }
 
-  
+
+
 
   public create (livre: Livre): Observable<Livre> {
     return this.http.post<Livre>(
