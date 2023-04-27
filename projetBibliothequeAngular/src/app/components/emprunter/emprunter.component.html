@@ -62,7 +62,7 @@
             routerLinkActive="active"
             class="btn btn-primary">Aperçu</a>
       </td>
-      <td *ngIf="livre.statut === 'DISPONIBLE';else indisponible">
+      <td *ngIf="l.statut === 'DISPONIBLE';else indisponible">
         <button (click)="emprunter(livre)" class="btn btn-success">
           Emprunter
         </button>
@@ -70,7 +70,9 @@
           Réserver
         </button> -->
       </td>
+      <td>
       <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
+    </td>
     </tr>
   </tbody>
 
