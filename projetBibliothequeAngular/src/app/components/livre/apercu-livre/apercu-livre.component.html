@@ -8,8 +8,8 @@
   <br>
   <div >
     <mat-label for="etiquettes">Genre :</mat-label>
-    <div>nom etiquette{{livre.etiquettes}}</div>
-    <div *ngFor="let e of livre.etiquettes">{{e}}</div>
+    <!-- <div *ngFor="let e in livre.etiquettes">{{ e.nom }}</div> -->
+    <span *ngFor="let e of livre.etiquettes">{{ e.nom }}</span>
   </div>
   <br>
   <div>

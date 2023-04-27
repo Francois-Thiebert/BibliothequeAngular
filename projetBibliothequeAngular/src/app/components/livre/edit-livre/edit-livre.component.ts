@@ -43,6 +43,7 @@ export class EditLivreComponent implements OnInit{
     this.etiquetteSrv.allEtiquettes().subscribe((etiquettes: EtiquetteNom[]) => {
       this.etiquettesEnBase = etiquettes;
       this.etiquettesEnBase.shift();
+      console.debug(this.etiquettesEnBase)
     });
   }
 
