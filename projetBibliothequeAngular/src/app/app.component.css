@@ -15,10 +15,23 @@ mat-drawer {
   background-color: white;
 }
 
+mat-sidenav {
+  height: 100%;
+}
+
 #span-toolbar {
   flex: 2 2 auto;
 }
 
 #mini-span {
   flex: 3 3 auto;
+}
+
+.page-content {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  min-height: 450px;
+  background-image: linear-gradient(rgba(40, 88, 232, 0.072), rgba(255, 255, 255, 0));
+
 }

@@ -12,6 +12,8 @@ import { AdministrateurService } from 'src/app/services/administrateur.service';
 })
 export class EditAdministrateurComponent implements OnInit{
   administrateur!: Administrateur;
+  hideA = true;
+  hideB=true;
 
   constructor(
     private aR: ActivatedRoute,

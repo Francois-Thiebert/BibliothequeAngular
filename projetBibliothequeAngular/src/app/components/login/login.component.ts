@@ -14,6 +14,7 @@ export class LoginComponent {
   login: string = '';
   password: string = '';
   showError = false;
+  hide = true;
 
   constructor(private loginSrv: LoginService, private router: Router) {}
 
@@ -40,6 +41,6 @@ export class LoginComponent {
   }
 
   rien(form: NgForm) {
-   
+
   }
 }
