@@ -6,8 +6,10 @@
     <mat-card-subtitle>{{ livre.auteur }}</mat-card-subtitle>
   </mat-card-header>
   <br>
-  <div>
-    <mat-label for="etiquettes">Genre : {{livre.etiquettes}}</mat-label>
+  <div >
+    <mat-label for="etiquettes">Genre :</mat-label>
+    <div>nom etiquette{{livre.etiquettes}}</div>
+    <div *ngFor="let e of livre.etiquettes">{{e}}</div>
   </div>
   <br>
   <div>
@@ -20,7 +22,7 @@
         Emprunter
       </button>
       <ng-template #indisponible>Emprunt actuellement indisponible pour ce livre :(</ng-template>
-
+    <span></span>
       <a routerLink="/emprunter" mat-button color="warn">Retour</a>
     </span>
   </mat-card-footer>

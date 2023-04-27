@@ -4,6 +4,11 @@
   background-size: auto; */
 }
 
+img {
+  height: 25px;
+  object-fit: contain;
+}
+
 mat-drawer-content {
   padding: 12px;
   display: flex;
