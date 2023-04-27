@@ -31,8 +31,8 @@
   <label for="statut">Etiquettes : </label>
   <label  *ngFor="let e of etiquettesEnBase">
     <span> </span>
-    <span (click)="ajout(e)" class="btn btn-primary"
-    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</span>
+    <a (click)="ajout(e)" mat-button
+    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</a>
     <span> </span>
   </label>
 
