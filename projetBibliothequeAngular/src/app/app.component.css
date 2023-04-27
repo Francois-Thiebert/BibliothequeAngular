@@ -25,11 +25,11 @@ mat-sidenav {
 }
 
 #span-toolbar {
-  flex: 2 2 auto;
+  flex: 6 6 auto;
 }
 
 #mini-span {
-  flex: 3 3 auto;
+  flex: 6 6 auto;
 }
 
 .page-content {
