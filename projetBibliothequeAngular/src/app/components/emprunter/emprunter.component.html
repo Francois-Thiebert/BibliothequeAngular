@@ -27,11 +27,11 @@
   <label for="statut">Etiquettes : </label>
   <label  *ngFor="let e of etiquettesEnBase">
     <span> </span>
-    <span (click)="ajout(e)" class="btn btn-primary">{{e.nom}}</span>
+    <span (click)="ajout(e)" class="btn btn-primary"
+    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</span>
     <span> </span>
   </label>
 
-  <label  *ngFor="let e of etiquettesSelect">{{e.nom}}</label>
 
 
   <div>

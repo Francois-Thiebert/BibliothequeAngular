@@ -67,7 +67,7 @@ export class EmprunterComponent {
       motifTitre: this.form.get('titre')?.value,
       motifAuteur: this.form.get('auteur')?.value,
       statut: this.form.get('statut')?.value,
-      etiquettes: this.etiquettesSelect
+      etiquettes: this.etiquettesSelect.map(et => { return et.nom})
      }
     this.rechercheObj=rechercheJson;
     this.livreSrv.recherche(rechercheJson).subscribe((livres) => {

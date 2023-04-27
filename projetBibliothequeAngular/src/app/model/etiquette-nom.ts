@@ -5,4 +5,11 @@ export class EtiquetteNom { private _nom?: String | undefined;
   public set nom(value: String | undefined) {
     this._nom = value;
   }
+
+  convertToString(){
+
+  }
+
 }
+
+

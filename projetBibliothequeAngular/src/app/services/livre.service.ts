@@ -20,7 +20,7 @@ export class LivreService {
   }
 
   public recherche(recherche: any): Observable<Livre[]>{
-    return this.http.get<Livre[]>(`${livreRest}/recherche`)
+    return this.http.post<Livre[]>(`${livreRest}/recherche`, recherche);
   }
 
   public getById(id: number): Observable<Livre> {
@@ -42,7 +42,7 @@ export class LivreService {
   }
 
 
-  
+
 
   public create (livre: Livre): Observable<Livre> {
     return this.http.post<Livre>(
