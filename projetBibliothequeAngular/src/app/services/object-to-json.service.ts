@@ -31,6 +31,7 @@ export class ObjectToJsonService {
     }
     return obj;
   }
+  
 
   public adherentToJson(adherent: Adherent): any {
     let obj = {

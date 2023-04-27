@@ -59,7 +59,7 @@ export class EditLivreComponent implements OnInit{
     let obvResult: Observable<Livre>;
     this.livre.etiquettes=this.etiquettesSelect;
     if (this.livre.id) {
-      obvResult = this.livreSrv.update(this.livre);
+      obvResult = this.livreSrv.updateWithEtiquettes(this.livre);
     } else {
       obvResult = this.livreSrv.create(this.livre);
     }
