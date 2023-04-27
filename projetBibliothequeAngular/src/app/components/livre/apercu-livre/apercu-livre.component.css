@@ -1,3 +1,15 @@
 .mini-span {
   flex: 6 6 auto;
 }
+
+.card-content{
+  margin: 10px;
+  display: flexbox;
+  align-items: center;
+}
+
+mat-card-footer {
+  display: flexbox;
+  align-items: center;
+  margin: auto;
+}
