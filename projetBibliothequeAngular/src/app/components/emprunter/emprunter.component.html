@@ -61,7 +61,7 @@
     <tr *ngFor="let l of livres">
       <td>{{ l.titre }}</td>
       <td>{{ l.auteur }}</td>
-      <td>{{ l.etiquettes }}</td>
+      <td><span *ngFor="let e of l.etiquettes">{{ e.nom }}</span></td>
       <td>{{ l.statut }}</td>
       <td>
         <a a mat-raised-button color="info" routerLink="/livre/apercu/{{ l.id }}"
