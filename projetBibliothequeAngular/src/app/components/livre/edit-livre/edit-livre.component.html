@@ -13,16 +13,20 @@
   </div>
   
   <div>
-    <span>Etiquettes</span>
-    <span *ngFor="let e of livre.etiquettes">{{ e.nom }}</span>
+    <span><b>Etiquettes du livre :</b></span>
+    <span *ngFor="let e of livre.etiquettes">{{ e.nom }} </span>
+  </div>
+  <div>
+    <span><b>Etiquettes du select :</b></span>
+    <span *ngFor="let e of etiquettesSelect">{{ e.nom }} </span>
   </div>
 
 
   <label  *ngFor="let e of etiquettesEnBase">
-    <span> </span>
     <span (click)="ajout(e)" class="btn btn-primary"
-    [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</span>
-    <span> </span>
+    [ngClass]="{select: contient(e)}">{{e.nom}}
+    </span>
+    
   </label>
 
 

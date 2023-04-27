@@ -32,29 +32,57 @@ export class EditLivreComponent implements OnInit{
       if (params['id']) {
         this.livreSrv.getById(params['id']).subscribe((livre: Livre) => {
           this.livre = livre;
+          console.debug(this.livre.etiquettes!)
+          this.etiquettesSelect = this.livre.etiquettes!.map(e => e)
+          console.debug("etiquette select")
+          console.debug(this.etiquettesSelect)
         });
       }
     });
 
     this.initEtiquettes();
+
   }
 
   initEtiquettes() {
     this.etiquetteSrv.allEtiquettes().subscribe((etiquettes: EtiquetteNom[]) => {
       this.etiquettesEnBase = etiquettes;
       this.etiquettesEnBase.shift();
-      console.debug(this.etiquettesEnBase)
     });
   }
 
+  // ajout(etiquette: EtiquetteNom){
+  //   if(this.etiquettesSelect.includes(etiquette)){
+  //     this.etiquettesSelect=this.etiquettesSelect.filter(e => e !== etiquette);
+  //   }
+  //   else {
+  //     this.etiquettesSelect.push(etiquette);
+  //   }
+  //   console.debug(this.etiquettesSelect)
+  //   console.debug(this.etiquettesSelect.includes(etiquette))
+  // }
+
+  contient(etiquette: EtiquetteNom){
+    return this.etiquettesSelect.some(({nom}) => nom === etiquette.nom)
+  }
+
   ajout(etiquette: EtiquetteNom){
-    if(this.etiquettesSelect.includes(etiquette)){
-      this.etiquettesSelect=this.etiquettesSelect.filter(e => e !== etiquette);
-    }
-    else {
+    // list1.some(({name}) => name === "object1")
+
+    // var contains = this.etiquettesSelect.some(elem =>{
+    //   return JSON.stringify(etiquette) === JSON.stringify(elem);
+    // });
+
+    if (this.etiquettesSelect.some(({nom}) => nom === etiquette.nom)){
+      this.etiquettesSelect=this.etiquettesSelect.filter(e => e.nom !== etiquette.nom);
+    } else {
       this.etiquettesSelect.push(etiquette);
     }
+    console.debug(this.etiquettesSelect)
+    console.debug(this.etiquettesSelect.includes(etiquette))
   }
+
+  
 
   save() {
     let obvResult: Observable<Livre>;
