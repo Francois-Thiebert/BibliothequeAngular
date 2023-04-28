@@ -42,6 +42,7 @@
       <td *ngIf="e.rendu==true">Rendu</td>
       <td *ngIf="e.rendu==false">En cours</td>
       <td><button mat-button color="primary" *ngIf="!e.rendu" (click)="rendre(e)">Rendre</button></td>
+      <span *ngIf="retard(e)">livre en retard</span>
     </tr>
   </tbody>
 </table>

@@ -19,6 +19,7 @@ export class InfosAdherentComponent implements OnInit {
   // datePipe: DatePipe = new DatePipe()
   adherent!:Adherent;
   emprunts:Emprunt[]=[];
+  date: Date = new Date()
 
   initEmprunt() {
     this.empruntSrv.EmpruntByUser(this.adherent.id!).subscribe((emprunts: Emprunt[]) => {
@@ -38,6 +39,11 @@ export class InfosAdherentComponent implements OnInit {
     this.adherent.emprunts=this.emprunts;
   }
 
+
+  retard(emprunt: Emprunt){
+    return this.date > emprunt.dateFin!
+  }
+
   rendre(emprunt: Emprunt): void {
     // changer le statut du livre en DISPONIBLE
     if(emprunt.livre != undefined){
@@ -46,7 +52,6 @@ export class InfosAdherentComponent implements OnInit {
     }
     // changer le statut de l'emprunt en RENDU = vrai
     emprunt.rendu = true
-    // console.debug(emprunt)
     this.empruntSrv.update(emprunt).subscribe(() => {
       this.initEmprunt();
     })
