@@ -37,6 +37,7 @@ export class ListeLivresComponent implements OnInit{
     this.livreSrv.getById(id).subscribe((livre: Livre) => {
       this.livreSrv.getEmpruntActif(id).subscribe((emprunt: Emprunt) => {
         emprunt.rendu = true
+        this.empruntSrv.update(emprunt)
       })
       livre.statut = Statut.STATUT_DISPONIBLE
       //TODO on update les QUE SI ON A TROUVÉ UN EMPRUNT ACTIFS, sinon on ne modif pas le statut du livre

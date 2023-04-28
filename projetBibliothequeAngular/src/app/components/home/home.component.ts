@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit{
   get welcome() {
       let _welcome = 'Bonjour ';
       if (sessionStorage.getItem('utilisateur')) {
-        let compte = JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
-        _welcome = _welcome + compte.login + ' !';
+        let utilisateur = JSON.parse(sessionStorage.getItem('utilisateur')!) as Adherent;
+        _welcome = _welcome + utilisateur.prenom + " " + utilisateur.nom + ' !';
       }
       return _welcome;
   }

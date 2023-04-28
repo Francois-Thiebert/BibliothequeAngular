@@ -51,28 +51,12 @@ export class EditLivreComponent implements OnInit{
     });
   }
 
-  // ajout(etiquette: EtiquetteNom){
-  //   if(this.etiquettesSelect.includes(etiquette)){
-  //     this.etiquettesSelect=this.etiquettesSelect.filter(e => e !== etiquette);
-  //   }
-  //   else {
-  //     this.etiquettesSelect.push(etiquette);
-  //   }
-  //   console.debug(this.etiquettesSelect)
-  //   console.debug(this.etiquettesSelect.includes(etiquette))
-  // }
-
+  
   contient(etiquette: EtiquetteNom){
     return this.etiquettesSelect.some(({nom}) => nom === etiquette.nom)
   }
 
   ajout(etiquette: EtiquetteNom){
-    // list1.some(({name}) => name === "object1")
-
-    // var contains = this.etiquettesSelect.some(elem =>{
-    //   return JSON.stringify(etiquette) === JSON.stringify(elem);
-    // });
-
     if (this.etiquettesSelect.some(({nom}) => nom === etiquette.nom)){
       this.etiquettesSelect=this.etiquettesSelect.filter(e => e.nom !== etiquette.nom);
     } else {

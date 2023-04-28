@@ -5,6 +5,7 @@ import { Adherent } from 'src/app/model/adherent';
 import { Emprunt } from 'src/app/model/emprunt';
 import { EtiquetteNom } from 'src/app/model/etiquette-nom';
 import { Livre } from 'src/app/model/livre';
+import { Statut } from 'src/app/model/statut';
 import { EmpruntService } from 'src/app/services/emprunt.service';
 import { EtiquetteService } from 'src/app/services/etiquette.service';
 import { LivreService } from 'src/app/services/livre.service';
@@ -19,6 +20,8 @@ import { LivreService } from 'src/app/services/livre.service';
 export class EmprunterComponent {
 
   form!: FormGroup
+  motifTitre: string = "";
+  motifAuteur: string = "";
 
   livre!: Livre;
   emprunt!: Emprunt;
@@ -62,10 +65,9 @@ export class EmprunterComponent {
   }
 
   recherche(){
-
     let rechercheJson={
-      motifTitre: this.form.get('titre')?.value,
-      motifAuteur: this.form.get('auteur')?.value,
+      motifTitre: this.form.get("titre")?.value ? this.form.get("titre")?.value : "",
+      motifAuteur: this.form.get("auteur")?.value ? this.form.get("auteur")?.value : "",
       statut: this.form.get('statut')?.value,
       etiquettes: this.etiquettesSelect.map(et => { return et.nom})
      }
@@ -79,6 +81,7 @@ export class EmprunterComponent {
   }
 
   emprunter (livre: Livre) {
+    livre.statut = Statut.STATUT_EMPRUNTE
     this.empruntSrv.create(livre).subscribe(() => {
       this.initLivres();
     })

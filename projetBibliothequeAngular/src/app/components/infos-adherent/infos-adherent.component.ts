@@ -5,6 +5,7 @@ import { Livre } from 'src/app/model/livre';
 import { Statut } from 'src/app/model/statut';
 import { EmpruntService } from 'src/app/services/emprunt.service';
 import { LivreService } from 'src/app/services/livre.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-infos-adherent',
@@ -15,6 +16,7 @@ export class InfosAdherentComponent implements OnInit {
 
   constructor(private empruntSrv: EmpruntService, private livreSrv: LivreService) {}
 
+  // datePipe: DatePipe = new DatePipe()
   adherent!:Adherent;
   emprunts:Emprunt[]=[];
 

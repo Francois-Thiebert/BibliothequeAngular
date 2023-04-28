@@ -48,8 +48,6 @@ export class LivreService {
   }
 
 
-
-
   public create (livre: Livre): Observable<Livre> {
     return this.http.post<Livre>(
       livreRest,
