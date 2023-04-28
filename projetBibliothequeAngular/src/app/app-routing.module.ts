@@ -82,6 +82,10 @@ const routes: Routes = [
   component: EditAdministrateurComponent,
   canActivate: [AdminGuardService]},
 
+  { path: 'administrateur/edit/:id',
+  component: EditAdherentComponent,
+  canActivate: [AdminGuardService],},
+
 
   { path: '**', component: NotFoundComponent },
 ];

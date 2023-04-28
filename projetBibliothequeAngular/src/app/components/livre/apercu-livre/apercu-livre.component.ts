@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Livre } from 'src/app/model/livre';
+import { Role } from 'src/app/model/role';
+import { Utilisateur } from 'src/app/model/utilisateur';
 import { EmpruntService } from 'src/app/services/emprunt.service';
 import { LivreService } from 'src/app/services/livre.service';
 
@@ -35,6 +37,30 @@ export class ApercuLivreComponent implements OnInit{
     console.debug(livre)
     this.empruntSrv.create(livre).subscribe(() => {
     })
+  }
+
+  get logged(): boolean {
+    return sessionStorage.getItem('token') ? true : false;
+  }
+
+  get admin(): boolean {
+    if (sessionStorage.getItem('utilisateur')) {
+      let utilisateur: Utilisateur  = JSON.parse(
+        sessionStorage.getItem('utilisateur')!
+      ) as Utilisateur;
+      return utilisateur.role == Role.ROLE_ADMIN;
+    }
+    return false;
+  }
+
+  get adherent(): boolean {
+    if (sessionStorage.getItem('utilisateur')) {
+      let utilisateur: Utilisateur  = JSON.parse(
+        sessionStorage.getItem('utilisateur')!
+      ) as Utilisateur;
+      return utilisateur.role == Role.ROLE_ADHERENT;
+    }
+    return false;
   }
 
 }

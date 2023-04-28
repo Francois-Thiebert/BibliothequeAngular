@@ -2,3 +2,8 @@
   background-color: rgba(213, 192, 244, 0.739);
   color: #1818b0a7;
 }
+
+mat-form-field {
+  min-width: 400px;
+}
+

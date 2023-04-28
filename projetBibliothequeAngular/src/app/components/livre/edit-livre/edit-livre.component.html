@@ -18,13 +18,11 @@
   </div>
 
 
-  <label  *ngFor="let e of etiquettesEnBase">
-    <span (click)="ajout(e)" class="btn btn-primary"
+  <span style="margin: 3px;" *ngFor="let e of etiquettesEnBase">
+    <button mat-stroked-button color="primary" (click)="ajout(e)"
     [ngClass]="{select: contient(e)}">{{e.nom}}
-    </span>
-    
-
-  </label>
+    </button>
+  </span>
 
 
   <div>
