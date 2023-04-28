@@ -17,7 +17,7 @@
     <div>Statut : {{livre.statut}}</div>
 </div>
   <hr>
-  <mat-card-footer>
+  <mat-card-footer *ngIf="adherent" >
     <span>
       <button mat-button color="primary" *ngIf="livre.statut === 'DISPONIBLE';else indisponible" (click)="emprunter(livre) ">
         Emprunter
@@ -26,6 +26,13 @@
         <mat-icon>highlight_off</mat-icon>Indisponible</a></ng-template>
     <span class="mini-span"></span>
       <a routerLink="/emprunter" mat-button color="warn">Retour</a>
+    </span>
+  </mat-card-footer>
+
+  <mat-card-footer *ngIf="admin" >
+    <span>
+      <a routerLink="/livre/edit/{{ livre.id }}" mat-button color="primary">Editer</a>
+      <a routerLink="/livres" mat-button color="warn">Retour</a>
     </span>
   </mat-card-footer>
 </mat-card>

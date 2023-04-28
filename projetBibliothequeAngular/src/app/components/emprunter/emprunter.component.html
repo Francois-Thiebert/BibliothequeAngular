@@ -29,12 +29,10 @@
 
   <!-- ajouter les étiquettes -->
   <label for="statut">Etiquettes : </label>
-  <label  *ngFor="let e of etiquettesEnBase">
-    <span> </span>
-    <a (click)="ajout(e)" mat-button
+  <span  *ngFor="let e of etiquettesEnBase" style="margin: 3px;">
+    <a (click)="ajout(e)" mat-stroked-button color="primary"
     [ngClass]="{select: etiquettesSelect.includes(e)}">{{e.nom}}</a>
-    <span> </span>
-  </label>
+  </span>
 
 <br>
 <p></p>
